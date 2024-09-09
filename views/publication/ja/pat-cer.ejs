@@ -1,0 +1,34 @@
+<%- include('header') %>
+
+<div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/">Home</a> > <a class="aboutUs-tag"  href="#">特許および認定を取得します</a></div>
+    <section class="award-certificate-container ">
+        <div class="award-certificate-list">
+            <% dataPatCer.forEach(function(patCer) { %>
+            <div class="award-certificate-item">
+                <img src="/public/uploads/patcer/<%= patCer.patcer_img%>" title="<%= patCer.patcer_name%>"  >
+            </div>
+            <%  }); %>
+        </div>
+        
+    </section>
+
+    <style>
+        .pagination .page-item.active .page-link {
+            color: white !important;
+            background: #ccc;
+        }
+
+        .latest-news-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 230px; 
+            padding: 10px;
+        }
+
+        .latest-news-info p {
+            margin: 5px 0;
+        }
+    </style>
+<div>&nbsp;</div><br><div>&nbsp;</div>
+    <div id="simg-templete-footer"><%- include('footer') %></div>

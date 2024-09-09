@@ -1,0 +1,122 @@
+
+<%- include('header') %>
+<style>
+    .news-item {
+        width: calc(25% - 0px) !important;
+    }
+</style>
+
+    <section class="main-container simg-white simg-bg-tangerine">
+        <div class="main-title simg-bg-tangerine simg-bg-white">
+            중장비 훈련 VR 시뮬레이터 <br>
+            개발 전문기업. (주)심지
+        </div>
+    </section>
+
+    <section class="simulator-container">
+        <div class="simulator simg-bg-white">
+            <iframe src="https://www.youtube.com/embed/U9CL2skuM-M?si=9ImnxfBQQqkpU5q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="simulator-info">
+                <p class="simulator-type simg-body3 text-left simg-tangerine">중장비 시뮬레이터</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">굴착기 시뮬레이터</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500">굴착기 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
+                <a href="/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
+            </div>
+        </div>
+        <div class="simulator simg-bg-white">
+            <iframe src="https://www.youtube.com/embed/hU2xK6LCUeo?si=9xt2B9Nd0TwQZR16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="simulator-info">
+                <p class="simulator-type simg-body3 text-left simg-tangerine">중장비 시뮬레이터</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">지게차 시뮬레이터</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500">지게차 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
+                <a href="product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
+            </div>
+        </div>
+    </section>
+    <section class="client-container">
+        <div class="partnership-banner">
+            <div>
+                <div class="partnership-type simg-body2 text-left simg-blue simg-bg-white">R&D</div>
+                <div class="partnership-title simg-title2 text-left simg-white">각 분야 전문가들을 위한 맞춤 솔루션 제공</div>
+                <div class="partnership-description simg-body1 text-left simg-white simg-opacity60">최고의 솔루션으로 기업에 맞춤형 혁신을 제공</div>
+            </div>
+            <a href="/r-d" class="partnership-detail-button simg-body2 text-center simg-blue simg-bg-white">자세히보기</a>
+        </div>
+    </section>
+    <section class="news-container mt-3 simg-page-bg">
+        <div class="section-title simg-heading4 text-center simg-black">LATEST NEWS</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">최신 기술로 산업 안전을 혁신하는 SimG의 소식과 뉴스를 확인하세요.</p>
+        <button class="button-arrow" id="news-prev-button"><img src="./images/btn-arrow-left.png" alt="Before-News"></button>
+        <div class="news-wrapper">
+            <ul class="news-carousel">
+                 <% dataNews.forEach(function(news) { %>
+                <li class="news-item">
+                    <img src="./uploads/news/<%= news.news_cover_image %>" alt="News Image 1">
+                    <div class="news-content simg-bg-white">
+                        <span class="news-category">&nbsp;</span>
+                        <span class="news-date simg-body3 text-left simg-gray400"><%= news.news_date %></span>
+                        <div class="news-title simg-body2 text-left simg-black"><%= news.news_title %></div>
+                        <p class="news-description simg-body4 text-left simg-gray400">
+                            <% 
+                                var words = news.news_content.split(' ');
+                                var truncatedContent = words.slice(0, 9).join(' ');
+                                if (words.length > 9) {
+                                    truncatedContent += '...';
+                                }
+                                %> <%= truncatedContent %> <% 
+                           
+                            %>
+
+                        </p>
+                        <a href="/news/" class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">뉴스 더보기</a>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div> 
+        <button class="button-arrow" id="news-next-button"><img src="./images/btn-arrow-right.png" alt="After-News"></button>
+    </section>
+
+
+
+    <section class="client-container pb-5">
+        <div class="section-title simg-heading4 text-center simg-black">OUR CLIENTS</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">
+            (주)심지는 전 세계 수많은 브랜드와 협업하며, 맞춤형 3D 콘텐츠 솔루션을 제공합니다.</p>
+        <button class="button-arrow swiper-button-prev simg-gray300" id="client-prev-button"></button>
+        <div class="swiper client-wrapper">
+            <div class="swiper-wrapper">
+                <% dataClient.forEach(function(client) { %>
+                    <div class="swiper-slide"><img src="../uploads/client/<%= client.client_logo %>"
+                            alt="<%= client.client_name %>" title="<%= client.client_name %>"></div>
+                    <% }); %>
+            </div>
+        </div>
+        <button class="button-arrow swiper-button-next simg-gray300" id="client-next-button"></button>
+    </section>
+
+
+    
+
+    <div class="contact-title-bg simg-page-bg">
+        <section class="contact-container">
+            <div class="section-title simg-heading4 text-center simg-white">CONTACT US</div>
+            <p class="section-subtitle simg-body2 text-center simg-white">
+                R&D 협력 문의와 제품 및 서비스 도입 문의를 아래 입력폼에 남겨주시면 빠르게 답변드리겠습니다.</p>
+
+            <div class="contact-form pt-4 pb-5 simg-bg-white">
+                <%- include('contactform') %>
+
+            </div>
+        </section>
+    </div>
+  
+    
+    
+    <div id="simg-templete-footer"><%- include('footer') %></div>
+   
+  
+
+   
+</body>
+</html>

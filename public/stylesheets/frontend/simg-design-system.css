@@ -1,0 +1,249 @@
+
+/* Simg font Default */
+
+.simg-font {
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+/* Simg font style */
+
+.simg-heading1 {
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.simg-heading2 {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.simg-heading3 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.simg-heading4 {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+.simg-title1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.simg-title2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.simg-title3 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.simg-title4 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.simg-body1 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.simg-body2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.simg-body3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.simg-body4 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.simg-description1 {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.simg-description2 {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+/* text alings */
+
+.text-left {
+    text-align: left;
+}
+  
+.text-center {
+    text-align: center;
+}
+  
+.text-right {
+    text-align: right;
+}
+
+/* Simg design colors */
+
+.simg-page-bg {
+    background-color: rgba(230, 230, 230, var(--simgOpacity40));
+}
+
+.simg-black {
+    color: var(--black);
+}
+
+.simg-bg-black {
+    background-color: var(--black);
+}
+
+.simg-white {
+    color: var(--white);
+}
+
+.simg-bg-white {
+    background-color: var(--white);
+}
+
+.simg-gray100 {
+    color: var(--gray100);
+}
+
+.simg-bg-gray100 {
+    background-color: var(--gray100);
+}
+
+.simg-gray200 {
+    color: var(--gray200);
+}
+
+.simg-bg-gray200 {
+    background-color: var(--gray200);
+}
+
+.simg-gray300 {
+    color: var(--gray300);
+}
+
+.simg-bg-gray300 {
+    background-color: var(--gray300);
+}
+
+.simg-gray400 {
+    color: var(--gray400);
+}
+
+.simg-bg-gray400 {
+    background-color: var(--gray400);
+}
+
+.simg-gray500 {
+    color: var(--gray500);
+}
+
+.simg-bg-gray500 {
+    background-color: var(--gray500);
+}
+
+.simg-gray600 {
+    color: var(--gray600);
+}
+
+.simg-bg-gray600 {
+    background-color: var(--gray600);
+}
+
+.simg-gray700 {
+    color: var(--gray700);
+}
+
+.simg-bg-gray700 {
+    background-color: var(--gray700);
+}
+
+.simg-gray800 {
+    color: var(--gray800);
+}
+
+.simg-bg-gray800 {
+    background-color: var(--gray800);
+}
+
+.simg-tangerine {
+    color: var(--simgTangerine);
+}
+
+.simg-bg-tangerine {
+    background-color: var(--simgTangerine);
+}
+
+.simg-deepTangerine {
+    color: var(--simgDeepTangerine);
+}
+
+.simg-bg-deepTangerine {
+    background-color: var(--simgDeepTangerine);
+}
+
+.simg-blue {
+    color: var(--simgBlue);
+}
+
+.simg-bg-blue {
+    background-color: var(--simgBlue);
+}
+
+.simg-indigo {
+    color: var(--simgIndigo);
+}
+
+.simg-bg-indigo {
+    background-color: var(--simgIndigo);
+}
+
+.simg-navy {
+    color: var(--simgNavy);
+}
+
+.simg-bg-navy {
+    background-color: var(--simgNavy);
+}
+
+.simg-deepNavy {
+    color: var(--simgDeepNavy);
+}
+
+.simg-bg-deepNavy {
+    background-color: var(--simgDeepNavy);
+}
+
+.simg-opacity10 {
+    opacity: 0.1;
+}
+
+.simg-opacity20 {
+    opacity: 0.2;
+}
+
+.simg-opacity40 {
+    opacity: 0.4;
+}
+
+.simg-opacity60 {
+    opacity: 0.6;
+}
+
+.simg-opacity80 {
+    opacity: 0.8;
+}

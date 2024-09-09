@@ -1,0 +1,80 @@
+<%- include('header') %>
+
+    <div class="menu-tag simg-body4 simg-gray400 "><a class="index-tag  simg-gray500" href="/">홈</a> > <a class="aboutUs-tag" href="/news">뉴스</a></div>
+    <section class="latest-news-container">
+        <table class="latest-news-list" border="0">
+            <tr>
+                <% dataNews.forEach(function(news) { let cat_id=news.news_id; %>
+                    <td class="latest-news-item">
+                        <img src="/public/uploads/news/<%= news.news_cover_image %>" width="320px">
+                        <div class="latest-news-info">
+                            <p class="latest-news-info-title simg-title4">
+                                <a href="/news-detail/<%= news.news_id%>">
+                                <%= news.news_title%>
+                            </a>
+                            </p>
+                            <p class="latest-news-info-date simg-body4 simg-gray600">
+                                <%= news.news_date%>
+                            </p>
+                            <p class="latest-news-info-description  simg-body3">
+                                <%= news.news_content%>
+                            </p>
+                        </div>
+                    </td>
+                    <%  }); %>
+            </tr>
+        </table>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination  justify-content-center" id="paging">
+                    <% if(page>=2){ %>
+                        <li class="page-item simg-body3"><a class="page-link simg-gray500" id="paging-left" href="/news/<%= page-1 %>">
+                                << </a>
+                        </li>
+                        <% } <!--end if(page>=2)-->
+                            <!---mid link-->
+                            for(var i=1; i<=total_pages ; i++){ if (i==page) { %>
+                                <li class="page-item active simg-body3"><a class="page-link simg-gray500" id="paging-left"
+                                        href="/news/<%= i %>">
+                                        <%= i %>
+                                    </a></li>
+                                <% } else{ %>
+
+                                    <li class="page-item simg-body3 "><a class="page-link simg-gray500" id="paging-left" href="/news/<%= i %>">
+                                            <%= i %>
+                                        </a></li>
+                                    <% } }<!--end for-->
+                                        if(page < total_pages){page++; %>
+
+                                            <li class="page-item simg-body3"><a class="page-link simg-gray500" id="paging-left"
+                                                    href="/news/<%= page %>">
+                                                    >>
+                                                </a></li>
+                                            <% } %>
+
+                </ul>
+            </td>
+        </tr>
+    </section>
+
+
+    <style>
+        .pagination .page-item.active .page-link {
+            color: white !important;
+            background: #ccc;
+        }
+
+        .latest-news-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 230px; 
+            padding: 10px;
+        }
+
+        .latest-news-info p {
+            margin: 5px 0;
+        }
+    </style>
+
+    <div id="simg-templete-footer"><%- include('footer') %></div>

@@ -1,0 +1,45 @@
+/* CKEditor Styles */
+.ck-editor__editable {
+    min-height: 300px;
+}
+
+/* Image Styles */
+.image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.image-style-align-left {
+    float: left;
+    margin-right: 20px;
+}
+
+.image-style-align-right {
+    float: right;
+    margin-left: 20px;
+}
+
+.image-style-align-center {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Text Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Link Styles */
+a {
+    color: blue;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: red;
+}

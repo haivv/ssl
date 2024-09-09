@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.error {
+  color: #F65633;
+  position: relative;
+}
+
+input:focus {
+  outline: none;
+}
+
+body {
+  height: 2000px; /* Simulating a very long page */
+}
+#form-section {
+  margin-top: 1800px; /* Positioning the form at the bottom */
+}
+html {
+  scroll-behavior: smooth;
+}
+#message{
+  font-size: 30px;
+  color:rgb(0, 171, 250) !important;
+  
+}

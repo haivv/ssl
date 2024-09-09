@@ -1,0 +1,86 @@
+<%- include('header') %>
+<style>
+.partnership-products-item {
+    height: 450px !important;
+}
+</style>
+
+    <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/en">Home</a> > <a class="aboutUs-tag" href="#">Partnership</a></div>
+    <section class="partnership-page-container">
+        <div>
+            <div class="partnership-page-title simg-body2 text-left">SIMG Co., Ltd. provides a variety of simulators, XR content, and solutions.</div>
+            <div class="partnership-page-message text-left">
+                We support the creation of innovative XR content for companies in demand and operate partnerships to revitalize the industry ecosystem.
+
+                Through this, we help companies produce creative and competitive content and aim to strengthen competitiveness in the global market.
+            </div>
+        </div>
+        <div>
+            <img src="/public/images/img-partnership.jpg" class="partnership-page-image">
+        </div>
+    </section>
+
+    <section class="partnership-products-container  simg-page-bg">
+        <div class="partnership-products-list">
+            <%   dataPatnership.forEach(function(partnership) { %>
+                <div class="partnership-products-item simg-bg-white text-left">
+                    <img src="/public/uploads/partnership/<%= partnership.partner_img %>">
+                    <div class="partnership-products-item-type  simg-body3 simg-tangerine"><%= partnership.partner_name_en %></div>
+                    <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project_en %></div>
+                    <div class="partnership-products-item-content">
+                        <%   let detail = partnership.partner_detail_en; let splitDetails = detail.split('.');  %>
+                        <ul>
+                            <% splitDetails.forEach(function(part) { %>
+                              <li  class="simg-body4 simg-gray500" style="margin-bottom: 5px;"><%= part.trim() %></li>
+                            <% }); %>
+                          </ul>
+                    </div>
+                </div>
+                <%}); %>
+            
+            
+        </div>
+        <div class="partnership-products-button-area">
+            <a href="/en/contact" class="partnership-page-contact-button simg-body2 simg-bg-blue simg-white">Contact us</a>
+        </div>
+    </section>
+
+    
+
+
+    <style>
+        .pagination .page-item.active .page-link {
+            color: white !important;
+            background: #ccc;
+        }
+
+        .latest-news-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 230px;
+            padding: 10px;
+        }
+
+        .latest-news-info p {
+            margin: 5px 0;
+        }
+    </style>
+
+    <div id="simg-templete-footer"><%- include('footer') %></div>
+    <script>
+        $(document).ready(function () {
+            $('.accordion-title').click(function () {
+                $('.accordion-content').slideUp();
+                $('.accordion-title').removeClass('active');
+
+                if ($(this).next('.accordion-content').is(':visible')) {
+                    $(this).next('.accordion-content').slideUp();
+                    $(this).removeClass('active');
+                } else {
+                    $(this).next('.accordion-content').slideDown();
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>

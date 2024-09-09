@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주)심지</title>
+    
+    <meta name="description" content="(주)심지 시뮬레이터 사이트">
+    <meta name="keywords" content="(주)심지, 시뮬레이터, 교육, 중장비">
+    <link rel="icon" href="/public/images/logo1.png" type="image/x-icon">
+    <script src="/public/javascripts/fontend/jquery-3.4.1.min.js"></script>
+    <script src="/public/javascripts/fontend/menu.js"></script>
+    
+    <link rel="stylesheet" href="/public/stylesheets/frontend/simg.css">
+    <link rel="stylesheet" href="/public/stylesheets/frontend/simg-design-system.css">
+    <link rel="stylesheet" href="/public/stylesheets/frontend/style.css">
+    <link rel="stylesheet" href="/public/stylesheets/frontend/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="/public/javascripts/fontend/swiper.js"></script> 
+</head>
+<body>
+    <header>
+        <div class="top-bar simg-bg-navy simg-white">
+            <div class="top-bar-container">
+                <div class="top-bar-info simg-description1 text-left simg-gray100">
+                    <img src="/public/images/icon-call.png" alt="Phone Icon"> 
+                    <div id="phone-number"> 
+                        <div class="phone-number"> 052-221-3001/3007</div>
+                        <div class="phone-number"> 02-2081-2001</div>
+                    </div>
+                </div>
+                <div class="top-bar-info simg-description1 text-left simg-gray100">
+                    <img src="/public/images/icon-email.png" alt="Email Icon"> simg@simglab.com
+                </div>
+                <div class="social-buttons">
+                    <a href="https://www.youtube.com/channel/UCztDxh3P5Edx2fH6R11lHJA">
+                        <img src="/public/images/Youtube_icon.png" alt="YouTube">
+                    </a>
+                    <a href="https://blog.naver.com/simgxr">
+                        <img src="/public/images/Blog_icon.png" alt="KakaoTalk">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-container simg-bg-white">
+            <a href="/">
+                <img src="/public/images/SimGLoco_Korean_Basic.png" alt="SimG Logo" class="logo">
+            </a>
+            <button class="menu-toggle" id="menu-toggle-button">
+                <img src="/public/images/btn-menuToggle.png">
+            </button>
+            <ul class="nav-menu">
+                <li class="simg-body3 text-left"><a class="simg-black" href="/aboutus">회사소개</a></li>
+                <li>
+                    <a class="simg-black" href="#">제품 ▸</a>
+                    <ul class="dropdown simg-bg-white">
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">중장비 시뮬레이터 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <% dataCat1.forEach(function(cate1) { %>
+                                    <li><a href="/product/<%= cate1.pro_id %>">
+                                            <%= cate1.pro_title %>
+                                        </a></li>
+                                    <% }); %>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">안전교육/사고체험 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <% dataCat2.forEach(function(cate2) { %>
+                                    <li><a href="/product/<%= cate2.pro_id %>">
+                                            <%= cate2.pro_title %>
+                                        </a></li>
+                                    <% }); %>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">제조업 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <% dataCat3.forEach(function(cate3) { %>
+                                    <li><a href="/product/<%= cate3.pro_id %>">
+                                            <%= cate3.pro_title %>
+                                        </a></li>
+                                    <% }); %>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">조선업 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <% dataCat4.forEach(function(cate4) { %>
+                                    <li><a href="/product/<%= cate4.pro_id %>">
+                                            <%= cate4.pro_title %>
+                                        </a></li>
+                                    <% }); %>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">문화/관광 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <% dataCat5.forEach(function(cate5) { %>
+                                    <li><a href="/product/<%= cate5.pro_id %>">
+                                            <%= cate5.pro_title %>
+                                        </a></li>
+                                    <% }); %>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="/news">뉴스</a></li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="/pat-cer">수상/인증</a></li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="/r-d">R&D</a></li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="/client">클라이언트/협력사</a></li>
+                <li class="nav-business-area simg-body3 text-left">
+                    <a href="/contact" class="business-button simg-body3 text-center simg-white simg-bg-blue">CONTACT US
+                        <img src="/public/images/right_top_arrow.png" class="header-arrow">
+                    </a>
+                </li>
+            </ul>
+            <nav class="side-nav-menu simg-bg-white">
+                <button class="close-menu" id="menu-close-button">
+                    <img src="/public/images/btn-menuClose.png">
+                </button>
+                <ul>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="/aboutus">회사소개</a></li>
+                    <li>
+                        <button class="product-button simg-body3 text-left text-left" id="product-list-button"><a href="#" class ="simg-black" >제품 ▸</a></button>
+                        <ul class="product-list-menu simg-bg-white">
+                            <li><button class="product-back-button" id="product-back-button"><img src="/public/images/btn-menuBack.png"></button></li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="heavy-equipment-button"><a class="simg-black" href="#">중장비 시뮬레이터 ▸</a></button>
+                                <ul class="heavy-equipment-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="heavy-equipment-back-button"><img  src="/public/images/btn-menuBack.png"></button></li>
+                                    <% dataCat1.forEach(function(cate1) { %>
+                                        <li><a href="/product/<%= cate1.pro_id %>">
+                                                <%= cate1.pro_title %>
+                                            </a></li>
+                                        <% }); %>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="safety-training-accident-experience-button"><a class="simg-black" href="#">안전교육/사고체험 ▸</a></button>
+                                <ul class="safety-training-accident-experience-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="safety-training-accident-experience-back-button"><img src="./images/btn-menuBack.png"></button></li>
+                                    <% dataCat2.forEach(function(cate2) { %>
+                                        <li><a href="/product/<%= cate2.pro_id %>">
+                                                <%= cate2.pro_title %>
+                                            </a></li>
+                                        <% }); %>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="manufacturing-button"><a class="simg-black" href="#">제조업 ▸</a></button>
+                                <ul class="manufacturing-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="manufacturing-back-button"><img src="/public/images/btn-menuBack.png"></button></li>
+                                    <% dataCat3.forEach(function(cate3) { %>
+                                        <li><a href="/product/<%= cate3.pro_id %>">
+                                                <%= cate3.pro_title %>
+                                            </a></li>
+                                        <% }); %>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="shipbuilding-industry-button"><a class="simg-black" href="#">조선업 ▸</a></button>
+                                <ul class="shipbuilding-industry-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="shipbuilding-industry-back-button"><img src="/public/images/btn-menuBack.png"></button></li>
+                                    <% dataCat4.forEach(function(cate4) { %>
+                                        <li><a href="/product/<%= cate4.pro_id %>">
+                                                <%= cate4.pro_title %>
+                                            </a></li>
+                                        <% }); %>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="culture-tourism-button"><a class="simg-black" href="#">문화/관광 ▸</a></button>
+                                <ul class="culture-tourism-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="culture-tourism-back-button"><img src="/public/images/btn-menuBack.png"></button></li>
+                                    <% dataCat5.forEach(function(cate5) { %>
+                                        <li><a href="/product/<%= cate5.pro_id %>">
+                                                <%= cate5.pro_title %>
+                                            </a></li>
+                                        <% }); %>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="/news">뉴스</a></li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="/pat-cer">수상/인증</a></li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="/r-d">R&D</a></li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="/client">클라이언트 / 협력사</a></li>
+                    <li class="simg-body3 text-left text-left">
+                        <a href="/contact" class="business-button">CONTACT US
+                        <img src="/public/images/right_top_arrow.png" class="header-arrow">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>

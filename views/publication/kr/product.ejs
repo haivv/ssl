@@ -1,0 +1,260 @@
+<%- include('header') %>
+    <style>
+        .popup-container {
+            padding: 30px
+        }
+    </style>
+    <script>
+        function showVideoPage() {
+
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closeVideo() {
+
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+    <% dataProduct.forEach(function(product) { %>
+        <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag  simg-gray500" href="/">홈</a> > <a class="aboutUs-tag" href="#">
+                <% if(product.cat_id==1){%>
+                    중장비 시뮬레이터
+                    <% }else if(product.cat_id==2){ %>
+                        안전교육/사고체험
+                        <% }else if(product.cat_id==3){ %>
+                            제조업
+                            <% }else if(product.cat_id==4){ %>
+                                조선업
+                                <% }else { %>
+                                    문화/관광
+                                    <%}%>
+            </a> > <a class="aboutUs-tag" href="#">
+                <%= product.pro_title %>
+            </a></div>
+        </div>
+
+        <section class="product-container">
+            <div class="product-page">
+                <div class="product-image-area">
+                    <div id="service" style="padding:0px 20px">
+                        <% if (product.pro_img1.length> 11){%>
+                            <img src="/public/uploads/product/<%= product.pro_img1%>" />
+                            <% }else if(product.pro_img2.length> 11){%>
+                                <img src="/public/uploads/product/<%= product.pro_img2%>" />
+                                <% }else if(product.pro_img3.length> 11){%>
+                                    <img src="/public/uploads/product/<%= product.pro_img3%>" />
+                                    <% }else if(product.pro_img4.length> 11){%>
+                                        <img src="/public/uploads/product/<%= product.pro_img4%>" />
+                                        <% }else {%>
+                                            <img src="/public/uploads/product/<%= product.pro_img5%>" />
+                                            <% }%>
+                    </div>
+                </div>
+
+                <div class="product-info-area">
+                    <div class="simg-title2 text-center simg-black">
+                        <%= product.pro_title_kr %>
+                    </div>
+                    <% if(product.type_classify=='on' ){%>
+                        <div class="product-info-model">
+                            <div class="product-info-model-title simg-title4 text-left">Models</div>
+                            <div class="product-info-model-list">
+                                <% var dem=0; if (product.pro_img1.length> 11){ %>
+                                    <div class="product-info-model-item active text-left" data-model="basic" id="img1"
+                                        onclick="change_service('img1', '<%= product.pro_img1%>')">
+                                        <div class="product-info-model-item-title simg-body2 simg-gray600">기본형</div>
+                                        <div class="product-info-model-item-subTitle simg-body4 simg-gray300">VR-Basic
+                                        </div>
+                                    </div>
+
+
+                                    <% dem=1; } %>
+
+                                        <%if (product.pro_img2.length> 11){ if (dem == 0){ %>
+                                            <div class="product-info-model-item text-left" data-model="hmd" id="img2"
+                                                style="border:4px solid #25AAE2;"
+                                                onclick="change_service('img2', '<%= product.pro_img2%>')">
+                                                <div class="product-info-model-item-title simg-body2 simg-gray600"
+                                                    style="color: #2D5FAB; font-weight: bold;">HMD</div>
+                                                <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
+                                                    style="color: #2D5FAB; font-weight: bold;">VR-HMD</div>
+                                            </div>
+                                            <%}else{ %>
+                                                <div class="product-info-model-item text-left" data-model="hmd"
+                                                    id="img2"
+                                                    onclick="change_service('img2', '<%= product.pro_img2%>')">
+                                                    <div class="product-info-model-item-title simg-body2 simg-gray600">
+                                                        HMD</div>
+                                                    <div
+                                                        class="product-info-model-item-subTitle simg-body4 simg-gray300">
+                                                        VR-HMD</div>
+                                                </div>
+
+                                                <% } dem=1;} %>
+                                                    <%if (product.pro_img3.length> 11){ if (dem == 0){ %>
+                                                        <div class="product-info-model-item text-left"
+                                                            style="border:4px solid #25AAE2;" data-model="multi-monitor"
+                                                            id="img3"
+                                                            onclick="change_service('img3', '<%= product.pro_img3%>')">
+                                                            <div class="product-info-model-item-title simg-body2 simg-gray600"
+                                                                style="color: #2D5FAB; font-weight: bold;">멀티모니터</div>
+                                                            <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
+                                                                style="color: #2D5FAB; font-weight: bold;">
+                                                                VR-Multi-monitor</div>
+                                                        </div>
+                                                        <%}else{%>
+                                                            <div class="product-info-model-item text-left"
+                                                                data-model="multi-monitor" id="img3"
+                                                                onclick="change_service('img3', '<%= product.pro_img3%>')">
+                                                                <div
+                                                                    class="product-info-model-item-title simg-body2 simg-gray600">
+                                                                    멀티모니터</div>
+                                                                <div
+                                                                    class="product-info-model-item-subTitle simg-body4 simg-gray300">
+                                                                    VR-Multi-monitor</div>
+                                                            </div>
+
+                                                            <% }dem=1;} %>
+                                                                <%if (product.pro_img4.length> 11){
+                                                                    if (dem == 0){
+                                                                    %>
+                                                                    <div class="product-info-model-item text-left"
+                                                                        style="border:4px solid #25AAE2;"
+                                                                        data-model="desk" id="img4"
+                                                                        onclick="change_service('img4', '<%= product.pro_img4%>')">
+                                                                        <div class="product-info-model-item-title simg-body2 simg-gray600"
+                                                                            style="color: #2D5FAB; font-weight: bold;">
+                                                                            책상형</div>
+                                                                        <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
+                                                                            style="color: #2D5FAB; font-weight: bold;">
+                                                                            VR-Desk</div>
+                                                                    </div>
+                                                                    <%}else{%>
+                                                                        <div class="product-info-model-item text-left"
+                                                                            data-model="desk" id="img4"
+                                                                            onclick="change_service('img4', '<%= product.pro_img4%>')">
+                                                                            <div
+                                                                                class="product-info-model-item-title simg-body2 simg-gray600">
+                                                                                책상형</div>
+                                                                            <div
+                                                                                class="product-info-model-item-subTitle simg-body4 simg-gray300">
+                                                                                VR-Desk</div>
+                                                                        </div>
+                                                                        <% } dem=1; } %>
+                                                                            <%if (product.pro_img5.length> 11){
+                                                                                if (dem == 0){
+                                                                                %>
+                                                                                <div class="product-info-model-item text-left"
+                                                                                    style="border:4px solid #25AAE2;"
+                                                                                    data-model="desk" id="img5"
+                                                                                    onclick="change_service('img5', '<%= product.pro_img5%>')">
+
+                                                                                    <div class="product-info-model-item-title simg-body2 simg-gray600 "
+                                                                                        style="color: #2D5FAB; font-weight: bold;">
+                                                                                        멀티모니터 + 모션베이스</div>
+                                                                                    <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
+                                                                                        style="color: #2D5FAB; font-weight: bold;">
+                                                                                        Multi-monitor + motion
+                                                                                        base version</div>
+                                                                                </div>
+                                                                                <%}else{%>
+                                                                                    <div class="product-info-model-item text-left"
+                                                                                        data-model="desk" id="img5"
+                                                                                        onclick="change_service('img5', '<%= product.pro_img5%>')">
+
+                                                                                        <div class="product-info-model-item-title simg-body2 simg-gray600 "
+                                                                                            style="color: #2D5FAB; font-weight: bold;">
+                                                                                            멀티모니터 + 모션베이스</div>
+                                                                                        <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
+                                                                                            style="color: #2D5FAB; font-weight: bold;">
+                                                                                            Multi-monitor + motion
+                                                                                            base version</div>
+                                                                                    </div>
+                                                                                    <% }} %>
+                                
+                            </div>
+                        </div>
+
+                        <%}%>
+                            <div class="product-info-feature">
+                                <div class="product-info-feature">
+                                    <div class="product-info-feature-title simg-title4 text-left">Features</div>
+                                    <ul class="product-info-feature-contents text-left">
+                                        <%- product.pro_content%>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-info-reference">
+                                <% if(product.video_page=='on' ){%>
+                                    <button class="product-info-reference-button simg-body3 text-center simg-bg-gray100" id="popupButton"
+                                        onclick="showVideoPage()">기업 사례 보기</button>
+                                    <%}%>
+                            </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="popup" class="popup">
+            <div class="popup-blur"></div>
+            <div class="popup-container">
+                <span class="close">
+                    <img src="/public/images/btn-menuClose.png" class="colorize" onclick="closeVideo()">
+                </span>
+                <div class="popup-content">
+                    <img class="popup-image" src="/public/images/img-product-reference-volvo.jpg">
+                    <div class="popup-info">
+                        <img src="/public/images/img-product-reference-logo.jpg">
+                        <div>
+                            볼보 220E 굴삭기 모델을 가상현실 환경에서 실제 입력 디바이스와 연동하여 조작할 수 있도록 개발하였습니다.
+
+                            이 시스템은 실제 장비의 물리적 특성과 성능을 가상현실 속에 그대로 반영하여, 사용자가 현실과 거의 동일한 퍼포먼스를 경험할 수 있게 합니다.
+
+                            이러한 고급 기능들은 볼보 220E 굴삭기 모델의 가상현실 시뮬레이터를 업계 최고의 훈련 도구로 자리매김하게 합니다.
+                        </div>
+                        <a id="inquiryButton" class="simg-body3 text-center simg-bg-blue simg-white" href="/en/contact">문의하기</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+
+        <script type="text/javascript">
+
+            function change_service(i, t) {
+
+                for (var q = 1; q < 5; q++) {
+                    var element = document.getElementById("img" + q);
+                    element.style.borderStyle = "solid";
+                    element.style.borderWidth = "4px";
+                    element.style.borderColor = "white";
+
+
+                    var childElements = element.querySelectorAll('.product-info-model-item-title, .product-info-model-item-subTitle ');
+                    childElements.forEach(function (child) {
+                        child.style.color = "#999999";
+                        child.style.fontWeight = "";
+                    });
+                }
+
+
+                var selectedElement = document.getElementById(i);
+                selectedElement.style.borderColor = "#25AAE2";
+
+
+                var selectedChildElements = selectedElement.querySelectorAll('.product-info-model-item-title, .product-info-model-item-subTitle');
+                selectedChildElements.forEach(function (child) {
+                    child.style.color = "#2D5FAB";
+                    child.style.fontWeight = "bold";
+                });
+
+
+                document.getElementById('service').innerHTML = "<img src='/public/uploads/product/" + t + "'/>";
+            }
+
+
+
+
+        </script>
+        <div>&nbsp;</div><br>
+        <div>&nbsp;</div>
+        <div id="simg-templete-footer"><%- include('footer') %></div>

@@ -1,0 +1,260 @@
+<script>
+  function isValidEmail(strEmail) {
+    var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(strEmail);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const txtname = document.getElementById("txtname");
+    const txtemail = document.getElementById("txtemail");
+    const txtphone = document.getElementById("txtphone");
+    const txtcompany = document.getElementById("txtcompany");
+    const txtsubject = document.getElementById("txtsubject");
+    const checkButton = document.getElementById("check-button");
+
+
+
+
+    // Sự kiện input và blur cho txtname
+    txtname.addEventListener("input", validateName);
+    txtname.addEventListener("blur", validateName);
+
+    // Hàm validate cho txtname
+    function validateName() {
+      const txtnameValue = txtname.value.trim();
+      if (txtnameValue.length == 0) {
+        txtname.style.border = "1px solid red";
+        document.getElementById('nameerr').innerHTML = "This field is required.";
+      } else {
+        txtname.style.border = "1px solid #D0D0D0";
+        document.getElementById('nameerr').innerHTML = "";
+      }
+    }
+
+    // Sự kiện input và blur cho txtemail
+    txtemail.addEventListener("input", validateEmail);
+    txtemail.addEventListener("blur", validateEmail);
+
+    // Hàm validate cho txtemail
+    function validateEmail() {
+      const txtemailValue = txtemail.value.trim();
+      if (txtemailValue.length == 0) {
+        txtemail.style.border = "1px solid red";
+        document.getElementById('emailerr').innerHTML = "This field is required.";
+      } else {
+        if (isValidEmail(txtemailValue)) {
+          txtemail.style.border = "1px solid #D0D0D0";
+          document.getElementById('emailerr').innerHTML = "";
+        } else {
+          txtemail.style.border = "1px solid red";
+          document.getElementById('emailerr').innerHTML = "Please type your email.";
+        }
+      }
+    }
+
+    // Sự kiện input và blur cho txtphone
+    txtphone.addEventListener("input", validatePhone);
+    txtphone.addEventListener("blur", validatePhone);
+
+    // Hàm validate cho txtphone
+    function validatePhone() {
+      const txtphoneValue = txtphone.value.trim();
+      if (txtphoneValue.length == 0) {
+        txtphone.style.border = "1px solid red";
+        document.getElementById('phoneerr').innerHTML = "This field is required.";
+      } else {
+        txtphone.style.border = "1px solid #D0D0D0";
+        document.getElementById('phoneerr').innerHTML = "";
+      }
+    }
+
+    // Sự kiện input và blur cho txtcompany
+    txtcompany.addEventListener("input", validateCompany);
+    txtcompany.addEventListener("blur", validateCompany);
+
+    // Hàm validate cho txtcompany
+    function validateCompany() {
+      const txtcompanyValue = txtcompany.value.trim();
+      if (txtcompanyValue.length == 0) {
+        txtcompany.style.border = "1px solid red";
+        document.getElementById('companyerr').innerHTML = "This field is required.";
+      } else {
+        txtcompany.style.border = "1px solid #D0D0D0";
+        document.getElementById('companyerr').innerHTML = "";
+      }
+    }
+    // Sự kiện input và blur cho txtsubject
+    txtsubject.addEventListener("input", validateSubject);
+    txtsubject.addEventListener("blur", validateSubject);
+
+    // Hàm validate cho txtsubject
+    function validateSubject() {
+      const txtsubjectValue = txtsubject.value.trim();
+      if (txtsubjectValue.length == 0) {
+        txtsubject.style.border = "1px solid red";
+        document.getElementById('subjecterr').innerHTML = "This field is required.";
+      } else {
+        txtsubject.style.border = "1px solid #D0D0D0";
+        document.getElementById('subjecterr').innerHTML = "";
+      }
+    }
+
+
+
+
+
+
+    //  click event for Submit button
+    checkButton.addEventListener("click", function () {
+      var countClick = 0;
+      const txtnameValue = txtname.value.trim();
+      const txtemailValue = txtemail.value.trim();
+      const txtphoneValue = txtphone.value.trim();
+      const txtcompanyValue = txtcompany.value.trim();
+      const txtsubjectValue = txtsubject.value.trim();
+
+      // Check txtname
+      if (txtnameValue.length == 0) {
+        txtname.style.border = "1px solid red";
+        document.getElementById('nameerr').innerHTML = "이 필드는 필수입니다.";
+        countClick += 1;
+      } else {
+        txtname.style.border = "1px solid #D0D0D0";
+        document.getElementById('nameerr').innerHTML = "";
+      }
+
+      // Check txtemail
+      if (txtemailValue.length == 0) {
+        txtemail.style.border = "1px solid red";
+        document.getElementById('emailerr').innerHTML = "이 필드는 필수입니다.";
+        countClick += 1;
+      } else {
+        if (isValidEmail(txtemailValue)) {
+          txtemail.style.border = "1px solid #D0D0D0";
+          document.getElementById('emailerr').innerHTML = "";
+        } else {
+          txtemail.style.border = "1px solid red";
+          document.getElementById('emailerr').innerHTML = "이 필드는 필수입니다.";
+          countClick += 1;
+        }
+      }
+
+      // Check txtphone
+      if (txtphoneValue.length == 0) {
+        txtphone.style.border = "1px solid red";
+        document.getElementById('phoneerr').innerHTML = "이 필드는 필수입니다.";
+        countClick += 1;
+      } else {
+        txtphone.style.border = "1px solid #D0D0D0";
+        document.getElementById('phoneerr').innerHTML = "";
+      }
+
+      // Check txtcompany
+      if (txtcompanyValue.length == 0) {
+        txtcompany.style.border = "1px solid red";
+        document.getElementById('companyerr').innerHTML = "이 필드는 필수입니다.";
+        countClick += 1;
+      } else {
+        txtcompany.style.border = "1px solid #D0D0D0";
+        document.getElementById('companyerr').innerHTML = "";
+      }
+
+      // Check txtsubject
+      if (txtsubjectValue.length == 0) {
+        txtsubject.style.border = "1px solid red";
+        document.getElementById('subjecterr').innerHTML = "이 필드는 필수입니다..";
+        countClick += 1;
+      } else {
+        txtsubject.style.border = "1px solid #D0D0D0";
+        document.getElementById('subjecterr').innerHTML = "";
+      }
+
+      // submit form
+      if (countClick == 0) {
+        document.fcontact.submit();
+      }
+    });
+
+  });
+</script>
+<style>
+  label{
+    float: left;
+  }
+  .error {
+    color: #F65633;
+    position: relative;
+    font-size: 14px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+</style>
+
+<div class="container-fluid " id="form-section">
+  <div class="container mt-5">
+
+    <form name="fcontact" method="post" action="/contactus-proAdd">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="name" class="news-title simg-body2 text-left simg-black">이름</label>
+          <input type="text" class="form-control" id="txtname" name="txtname" placeholder="이름 입력">
+          <span class="error ext-left simg-body4 " id="nameerr"> </span>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="email" class="news-title simg-body2 text-left simg-black">이메일</label>
+          <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="이메일 입력">
+          <span class="error ext-left simg-body4 " id="emailerr"> </span>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="phone"class="news-title simg-body2 text-left simg-black">전화 번호</label>
+          <input type="tel" class="form-control" id="txtphone" name="txtphone" placeholder="전화 번호 입력">
+          <span class="error ext-left simg-body4 " id="phoneerr"> </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="company" class="news-title simg-body2 text-left simg-black">회사 이름</label>
+          <input type="text" class="form-control" id="txtcompany" name="txtcompany" placeholder="회사 이름 입력">
+          <span class="error ext-left simg-body4 " id="companyerr"> </span>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="txtsubject"  class="news-title simg-body2 text-left simg-black">제목</label>
+          <input type="text" class="form-control" id="txtsubject" name="txtsubject" placeholder="제목 입력">
+          <span class="error ext-left simg-body4 " id="subjecterr"> </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="message" class="news-title simg-body2 text-left simg-black">내용</label>
+          <textarea class="form-control" id="txtmessage" name="txtmessage" rows="4" placeholder="내용 입력"></textarea>
+        </div>
+      </div>
+     
+
+       
+      <div style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-primary" id="check-button">제출</button>
+      </div>
+      
+      <% if (message) { %>
+        <span id="message" style="color: green;">
+          <%= message %>
+        </span>
+        <% } %>
+    </form>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const messageElement = document.getElementById("message");
+    if (messageElement) {
+      setTimeout(function () {
+        messageElement.style.display = "none";
+      }, 5000); // 3 seconds
+    }
+  });
+</script>

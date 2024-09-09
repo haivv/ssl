@@ -1,0 +1,74 @@
+
+<%- include('header') %>
+<div class="menu-tag  simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/">Home</a> > <a class="aboutUs-tag"  href="#">About us</a></div>
+
+<section class="about-us-container">
+    <div class="row">
+      
+        <div class="about-us-info col">
+            
+            <div class="about-us-title simg-body2 text-left">SimG is a 3D content development company established in 2013.</div>
+            <div class="about-us-message text-left" style="font-size: 14px; font-weight:400;">
+                
+               <%- dataAbout[4].about_content %>
+            </div>
+        </div>
+        <div class="col">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3166.0536209442416!2d126.89605400000002!3d37.483061!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e24602d8f19%3A0x26ec77d87e8b96c4!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDrlJTsp4DthLjroZwzMOq4uCAzMQ!5e0!3m2!1sko!2skr!4v1718686577796!5m2!1sko!2skr" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section class="milestones-container  simg-page-bg">
+    <div class="section-title simg-heading4 text-center simg-black">COMPANY MILESTONES</div>
+    <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">These are the footsteps of SimG, who has been running tirelessly since 2013.</p>
+    <div class="milestones-list">
+        <div class="milestones-item  simg-bg-white">
+            <!-- <div class="milestones-item-title">창립 및 도약기 (~2013)</div>
+            <div class="milestones-item-sub-title">열정과 도전의 시작</div>
+            <ul class="milestones-item-contents">
+                <li>주식회사 심지 법인 설립</li>
+                <li>(주)현대중공업 Air Circuit Breaker 트러블슈팅 외 3종 3D동영상 납품</li>
+                <li>창업맞춤형사업 선정(창업진흥원)</li>
+                <li>Oneline Board Game "Elemental Tactics" 개발</li>
+                <li>3D Studio Max Script를 이용한 바이패드 애니메이션 합성 Tool "EAM(Emotional Action Morpher)" 개발</li>
+                <li>캐릭터 표현시스템 또는 캐릭터 표현방법</li>
+                <li>특허등록(10-095247)</li>
+            </ul> -->
+            <%- dataAbout[5].about_content %>
+        </div>
+        <div class="milestones-item simg-bg-white">
+            <%- dataAbout[6].about_content %>
+        </div>
+        <div class="milestones-item simg-bg-white">
+            <%- dataAbout[7].about_content %>
+        </div>
+    </div>
+</section>  
+  
+    
+
+<div id="simg-templete-footer"><%- include('footer') %></div>
+<style>
+    .about-us-message{
+        position: relative;
+        top: -30px;
+    }
+    .milestones-item li{
+        list-style: disc !important;
+    }
+    .milestones-item>p{
+        color: rgb(114, 114, 114);
+    }
+</style>
+  
+
+   
