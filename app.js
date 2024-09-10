@@ -117,15 +117,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// HTTPS setup
-const options = {
-  key: fs.readFileSync('./keys/private.pem'),
-  cert: fs.readFileSync('./keys/certificate.pem')
-};
+// // HTTPS setup
+// const options = {
+//   key: fs.readFileSync('./keys/private.pem'),
+//   cert: fs.readFileSync('./keys/certificate.pem')
+// };
 
-https.createServer(options, app).listen(443, () => {
-  console.log('Server is running on https://localhost:443');
-});
+// https.createServer(options, app).listen(443, () => {
+//   console.log('Server is running on https://localhost:443');
+// });
 
 
 module.exports = app;
