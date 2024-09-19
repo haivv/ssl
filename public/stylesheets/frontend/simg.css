@@ -1204,6 +1204,7 @@
 }
 
 .dropdown-submenu li a {
+    color: var(--black);
     text-decoration: none;
     display: block;
 }
@@ -1230,6 +1231,11 @@
 
 .business-button::after {
     display: none !important;
+}
+
+/* tag */
+.aboutUs-tag {
+    color: var(--gray500);
 }
 
 /* main-simulator */
@@ -1756,6 +1762,10 @@ input:focus {
 
 .latest-news-info {
     padding-left: 30px;
+}
+
+.latest-news-info p a {
+    color: var(--black);
 }
 
 #paging {
