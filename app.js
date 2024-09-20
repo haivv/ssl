@@ -1,3 +1,4 @@
+var http = require('http');
 var https = require('https');
 var fs = require('fs');
 
@@ -127,5 +128,14 @@ app.use(function(err, req, res, next) {
 //   console.log('Server is running on https://localhost:443');
 // });
 
+// Chạy server HTTP trên cổng 80
+http.createServer(app).listen(80, () => {
+  console.log('Server is running on http://localhost:80');
+});
+
+// Chạy server HTTP trên cổng 3000
+// http.createServer(app).listen(3000, () => {
+//   console.log('Server is running on http://localhost:3000');
+// });
 
 module.exports = app;
