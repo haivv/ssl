@@ -17,6 +17,12 @@ var sqlCat1 = "SELECT pro_id, pro_title_en FROM product where cat_id='1'";
 	var sqlCat5 = "SELECT pro_id, pro_title_en FROM product where cat_id='5'";
 
 /* GET home page. */
+
+
+  router.get('/checkcaptcha', (req, res) => {
+	res.render('publication/en/captcha')
+  });
+
 router.get('/', function (req, res, next) {
 	console.log("Index page");
 	var current_page = '';

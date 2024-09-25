@@ -11,6 +11,8 @@ var enRouter = require('./routes/en');
 var jaRouter = require('./routes/ja');
 var session = require('express-session');
 
+
+
 var bodyParser = require("body-parser");
 var multer = require('multer');
 
@@ -24,6 +26,8 @@ app.use(session({
   resave : true,
   saveUninitialized : true
 }));
+
+
 
 
 

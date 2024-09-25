@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form với Invisible reCAPTCHA</title>
+  <script>
+    function onSubmit(token) {
+      // Hàm này sẽ được gọi khi reCAPTCHA xác minh thành công
+      alert('CAPTCHA success! ' + document.getElementById('field').value);
+      document.getElementById("myForm").submit(); // Thực hiện submit form
+    }
+
+    function validate(event) {
+      event.preventDefault(); // Ngăn form submit ngay lập tức
+      if (!document.getElementById('field').value) {
+        alert("Type your information");
+      } else {
+        grecaptcha.execute(); // Kích hoạt reCAPTCHA
+      }
+    }
+
+    function onload() {
+      var element = document.getElementById('submit');
+      element.onclick = validate; // Gắn sự kiện validate vào nút submit
+    }
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <form id="myForm" action="/submit" method="post">
+    Name: (required) <input id="field" name="field" required><br>
+    <div id="recaptcha" class="g-recaptcha"
+        data-sitekey="6LfSQ04qAAAAAA_30fo8xKJCa6ORIR5wpggHwXzy"
+        data-callback="onSubmit"
+        data-size="normal"></div>
+    <button id="submit" type="submit">Submit</button>
+  </form>
+  <script>onload();</script> 
+</body>
+</html>
