@@ -14,17 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const clientNextButton = document.getElementById('client-next-button');
 
     let currentIndex = 0;
-    const visibleNewsItemCount = 4;
-    const visibleClientItemCount = 5;
+    let visibleNewsItemCount = 4;
+    let visibleClientItemCount = 5;
     const updateCarousel = () => {
         const width = window.innerWidth;
-        if (width >= 1400) {
+        if (width >= 1200) {
             visibleNewsItemCount = 4;
             visibleClientItemCount = 5;
-        } else if (width > 600) {
+        } else if (width >= 768 && width < 1200) {
             visibleNewsItemCount = 2;
             visibleClientItemCount = 3;
-        } else {
+        } else if (width < 768) {
             visibleNewsItemCount = 1;
             visibleClientItemCount = 1;
         }
