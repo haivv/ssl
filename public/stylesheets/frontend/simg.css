@@ -333,7 +333,7 @@
     }
     
     .footer-info-detail-section {
-        width: 50% !important;
+        width: 70% !important;
     }
 
     .footer-container {
@@ -463,6 +463,7 @@
     .popup-image {
         width: 100%;
         height: 100% !important;
+        object-fit: cover;
     }
 }
 
@@ -716,7 +717,119 @@
         padding-top: 30px !important;
     }
     .footer-container {
-        min-height: 520px !important;
+        min-height: 540px !important;
+    }
+
+    .privacy {
+        left: 60px !important;
+    }
+
+    #paging li {
+        display: none !important;
+    }
+
+    #paging li:first-child,
+    #paging li:nth-child(2),
+    #paging li:last-child,
+    #paging li:nth-last-child(2) {
+        display: inline-block !important;
+    }
+
+    #paging li:nth-child(-n+7) {
+        display: inline-block !important;
+    }
+
+    /* About Us */
+
+    .milestones-list {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .milestones-item {
+        width: auto !important;
+        margin: 20px 0 !important;
+    }
+
+    /* Our Clients */
+
+    .our-clients-list {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* Award Certificate */
+
+    .award-certificate-list {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* Business */
+
+    .contact-partner-item,
+    .contact-product-item {
+        width: auto !important;
+        margin: 20px 0 !important;
+    }
+
+    /* Partnership */
+
+    .partnership-page-container {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
+
+    .partnership-page-message {
+        padding-right: 0 !important;
+    }
+
+    .partnership-page-image {
+        margin-bottom: 40px;
+    }
+
+    .partnership-products-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .partnership-products-item {
+        width: 100% !important;
+    }
+
+    .partnership-products-item img {
+        width: 100% !important;
+    }
+
+    /* Product */
+
+    .product-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .product-page {
+        flex-direction: column !important;
+    }
+
+    .product-image-area {
+        text-align: center;
+    }
+
+    .product-image-area img {
+        width: 80%;
+        padding-bottom: 60px;
+    }
+
+    .popup-container {
+        max-width: 800px !important;
+        height: 60%;
+    }
+
+    .popup-content {
+        height: 100%;
+    }
+
+    .popup-image {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover;
     }
 }
 
@@ -1104,7 +1217,7 @@
     }
 
     .footer-container {
-        height: 760px !important;
+        height: 840px !important;
         padding: 0 !important;
     }
 
@@ -1295,6 +1408,7 @@
 
     .popup-content {
         grid-template-columns: repeat(1, 1fr) !important;
+        padding-bottom: 40px !important;
     }
 
     .popup-image {
@@ -1676,7 +1790,7 @@
     }
 
     .footer-container {
-        height: 860px !important;
+        height: 940px !important;
         padding: 0 !important;
     }
 
@@ -1848,11 +1962,14 @@
     }
 
     .popup-container {
-        max-width: 400px !important;
+        max-width: 290px !important;
+        max-height: 80% !important;
     }
 
     .popup-content {
         grid-template-columns: repeat(1, 1fr) !important;
+        gap: 0px !important;
+        padding-bottom: 40px !important;
     }
 
     .popup-image {
@@ -1860,7 +1977,7 @@
     }
 
     .popup-info {
-        padding: 30px;
+        padding: 20px;
         width: auto !important;
     }
 
