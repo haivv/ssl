@@ -455,5 +455,41 @@ router.get('/product/:product_id', function (req, res, next) {
 
 });
 
+router.get('/privacy', function (req, res, next) {
+	var current_page = 'privacy';
+	const message = req.query.message;
+	database.query(sqlCat1, function (error, dataCat1) {
+		database.query(sqlCat2, function (error, dataCat2) {
+			database.query(sqlCat3, function (error, dataCat3) {
+				database.query(sqlCat4, function (error, dataCat4) {
+					database.query(sqlCat5, function (error, dataCat5) {
+						res.render('publication/en/privacy-policy', { 
+							current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 
+						});
+					});
+				});
+			});
+		});
+	});
+});
+
+router.get('/term', function (req, res, next) {
+	var current_page = 'term';
+	const message = req.query.message;
+	database.query(sqlCat1, function (error, dataCat1) {
+		database.query(sqlCat2, function (error, dataCat2) {
+			database.query(sqlCat3, function (error, dataCat3) {
+				database.query(sqlCat4, function (error, dataCat4) {
+					database.query(sqlCat5, function (error, dataCat5) {
+						res.render('publication/en/term-of-service', { 
+							current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 
+						});
+					});
+				});
+			});
+		});
+	});
+});
+
 
 module.exports = router;
