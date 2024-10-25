@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	database: 'simglabcom',
 	user: 'root',
-	password: 'Simg@'
+	password: 'simgadmin'
 });
 
 connection.connect(function (error) {
@@ -12,7 +12,6 @@ connection.connect(function (error) {
 		throw error;
 	}
 	else {
-		
 		console.log('MySQL Database is connected Successfully');
 	}
 });

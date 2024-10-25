@@ -1,11 +1,11 @@
 <%- include('header') %>
 
-<div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/">Home</a> > <a class="aboutUs-tag"  href="#">Clients</a></div>
+<div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/vi">Trang chủ</a> > <a class="aboutUs-tag"  href="#">Khách hàng</a></div>
 <section class="our-clients-container">
     <div class="our-clients-list">
         <% dataClient.forEach(function(client) { %>
         <div class="our-clients-item">
-            <img src="/public/uploads/client/<%= client.client_logo%>" title="<%= client.client_name_en%>"  >
+            <img src="/public/uploads/client/<%= client.client_logo%>" title="<%= client.client_name_vi%>"  >
         </div>
         <%  }); %>
     </div>

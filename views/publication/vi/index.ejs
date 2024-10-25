@@ -16,6 +16,9 @@
         font-size: 28px;
     }
 
+    .news-item {
+        width: calc(25% - 0px) !important;
+    }
     @media screen and (min-width: 1200px) and (max-width: 1419px) {
         .nav-menu a {
             padding: 34px 8px 20px 8px;
@@ -40,42 +43,42 @@
 </style>
     <section class="main-container simg-white simg-bg-tangerine">
         <div class="main-title simg-bg-tangerine simg-bg-white">
-            SimG Co., Ltd.<br>Specialist in the development of<br>heavy equipment VR simulators.
+            Công ty chuyên phát triển mô phỏng VR &nbsp; <br> cho đào tạo thiết bị hạng nặng. <br>Công ty TNHH SimG.
         </div>
     </section>
     <section class="simulator-container">
         <div class="simulator simg-bg-white">
             <iframe src="https://www.youtube.com/embed/U9CL2skuM-M?si=9ImnxfBQQqkpU5q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type simg-body3 text-left simg-tangerine">Heavy Equipment Simulator</p>
-                <h3 class="simulator-title simg-title2 text-left simg-black">Excavator Simulator</h3>
-                <p class="simulator-description simg-body3 text-left simg-gray500">You can learn excavator practice with simulation equipment.</p>
-                <a href="/en/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">Read more</a>
+                <p class="simulator-type simg-body3 text-left simg-tangerine">Mô phỏng thiết bị hạng nặng</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">Mô phỏng máy xúc</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500 mt-3">Bạn có thể học thực hành máy xúc với những thiết bị mô phỏng.</p>
+                <a href="/vi/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">Đọc thêm</a>
             </div>
         </div>
         <div class="simulator simg-bg-white">
             <iframe src="https://www.youtube.com/embed/hU2xK6LCUeo?si=9xt2B9Nd0TwQZR16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type simg-body3 text-left simg-tangerine">Heavy Equipment Simulator</p>
-                <h3 class="simulator-title simg-title2 text-left simg-black">Forklift simulator</h3>
-                <p class="simulator-description simg-body3 text-left simg-gray500">You can learn forklift practice using simulation equipment.</p>
-                <a href="/en/product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">Read more</a>
+                <p class="simulator-type simg-body3 text-left simg-tangerine">Mô phỏng thiết bị hạng nặng</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">Mô phỏng máy nâng</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500 mt-3">Bạn có thể học thực hành vận hành xe nâng bằng cách sử dụng thiết bị mô phỏng.</p>
+                <a href="/vi/product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">Đọc thêm</a>
             </div>
         </div>
     </section>
     <section class="partnership-container">
         <div class="partnership-banner ">
             <div>
-                <div class="partnership-type simg-body2 text-left simg-blue simg-bg-white  ">R&D</div>
-                <div class="partnership-title simg-title2 text-left simg-white">Providing customized solutions for experts in each field</div>
-                <div class="partnership-description simg-body1 text-left simg-white simg-opacity60">Provide customized innovation to businesses with the best solutions</div>
+                <div class="partnership-type simg-body2 text-left simg-blue simg-bg-white">R&D</div>
+                <div class="partnership-title simg-title2 text-left simg-white">Cung cấp giải pháp cho các chuyên gia trong từng lĩnh vực</div>
+                <div class="partnership-description simg-body1 text-left simg-white simg-opacity60">Cung cấp sự đổi mới cho doanh nghiệp với các giải pháp tốt nhấts</div>
             </div>
-            <a href="/en/r-d" class="partnership-detail-button simg-body2 text-center simg-blue simg-bg-white">Read more</a>
+            <a href="/vi/r-d" class="partnership-detail-button simg-body2 text-center simg-blue simg-bg-white">Đọc thêm</a>
         </div>
     </section>
     <section class="news-container mt-3 simg-page-bg">
-        <div class="section-title simg-heading4 text-center simg-black">LATEST NEWS</div>
-        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology.</p>
+        <div class="section-title simg-heading4 text-center simg-black">TIN MỚI</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">Xem các tin tức từ SimG, công ty đang cách mạng hóa an toàn công nghiệp với công nghệ mới nhất.</p>
         <button class="button-arrow" id="news-prev-button"><img src="/public/images/btn-arrow-left.png" alt="Before-News"></button>
         <div class="news-wrapper">
             <ul class="news-carousel">
@@ -85,10 +88,10 @@
                     <div class="news-content simg-bg-white">
                         <span class="news-category">&nbsp;</span>
                         <span class="news-date simg-body3 text-left simg-gray400"><%= news.news_date %></span>
-                        <div class="news-title simg-body2 text-left simg-black"><%= news.news_title_en %></div>
+                        <div class="news-title simg-body2 text-left simg-black"><%= news.news_title_vi %></div>
                         <p class="news-description simg-body4 text-left simg-gray400">
                             <% 
-                                var words = news.news_content_en.split(' ');
+                                var words = news.news_content_vi.split(' ');
                                 var truncatedContent = words.slice(0, 9).join(' ');
                                 if (words.length > 9) {
                                     truncatedContent += '...';
@@ -98,7 +101,7 @@
                             %>
 
                         </p>
-                        <a href="/en/news/" class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">Read more</a>
+                        <a href="/vi/news/" class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">Đọc thêm</a>
                     </div>
                 </li>
                 <% }); %>
@@ -107,9 +110,9 @@
         <button class="button-arrow" id="news-next-button"><img src="../images/btn-arrow-right.png" alt="After-News"></button>
     </section>
     <section class="client-container pb-5">
-        <div class="section-title simg-heading4 text-center simg-black">OUR CLIENTS</div>
+        <div class="section-title simg-heading4 text-center simg-black">KHÁCH HÀNG CỦA CHÚNG TÔI</div>
         <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">
-            SimG Co., Ltd. collaborates with numerous brands around the world and provides customized 3D content solutions.</p>
+            Công ty TNHH SimG hợp tác với nhiều thương hiệu trên toàn cầu và cung cấp các giải pháp nội dung 3D.</p>
         <button class="button-arrow swiper-button-prev simg-gray300" id="client-prev-button"></button>
         <div class="swiper client-wrapper">
             <div class="swiper-wrapper">
@@ -123,9 +126,9 @@
     </section>
     <div class="contact-title-bg simg-page-bg">
         <section class="contact-container">
-            <div class="section-title simg-heading4 text-center simg-white">CONTACT US</div>
+            <div class="section-title simg-heading4 text-center simg-white">LIÊN HỆ VỚI CHÚNG TÔI</div>
             <p class="section-subtitle simg-body2 text-center simg-white">
-                For R&D or product inquiries, use the form below. We’ll respond quickly.</p>
+                Vui lòng sử dụng form dưới đây để hỏi về R&D hoặc sản phẩm. Chúng tôi sẽ phản hồi nhanh chóng.</p>
 
             <div class="contact-form pt-4 pb-5 simg-bg-white">
                 <%- include('contactform') %>

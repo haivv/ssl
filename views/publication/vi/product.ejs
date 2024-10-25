@@ -1,4 +1,9 @@
 <%- include('header') %>
+    <style>
+        .popup-container {
+            padding: 30px
+        }
+    </style>
     <script>
         function showVideoPage() {
 
@@ -11,27 +16,28 @@
         }
     </script>
     <% dataProduct.forEach(function(product) { %>
-        <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag  simg-gray500" href="/">Home</a> > <a
+        <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag  simg-gray500" href="/vi">Trang chủ</a> > <a
                 class="aboutUs-tag" href="#">
                 <% if(product.cat_id==1){%>
-                    重機シミュレータです
+                    Mô phỏng thiết bị hạng nặng
                     <% }else if(product.cat_id==2){ %>
-                        安全教育/事故体験です
+                        Huấn luyện an toàn/Đề phòng tai nạn
                         <% }else if(product.cat_id==3){ %>
-                            製造業です
+                            Chế tạo
                             <% }else if(product.cat_id==4){ %>
-                                造船業
+                                Công nghiệp đóng tàu
                                 <% }else { %>
-                                    文化/観光です
+                                    Văn hóa/Du lịch
                                     <%}%>
             </a> > <a class="aboutUs-tag" href="#">
-                <%= product.pro_title_ja %>
+                <%= product.pro_title_vi %>
             </a></div>
         </div>
 
         <section class="product-container">
             <div class="product-page">
                 <div class="product-image-area">
+                    <!-- <img id="" src="/public/uploads/product/2024-07-24_HeaEquSim_ExcSim2.jpg.jpg" alt="here"> -->
                     <div id="service" style="padding:0px 20px">
                         <% if (product.pro_img1.length> 11){%>
                             <img src="/public/uploads/product/<%= product.pro_img1%>" />
@@ -45,21 +51,21 @@
                                             <img src="/public/uploads/product/<%= product.pro_img5%>" />
                                             <% }%>
                     </div>
+
                 </div>
 
                 <div class="product-info-area">
                     <div class="simg-title2 text-center simg-black">
-                        <%= product.pro_title_ja %>
+                        <%= product.pro_title_vi %>
                     </div>
                     <% if(product.type_classify=='on' ){%>
                         <div class="product-info-model">
                             <div class="product-info-model-title simg-title4 text-left">Models</div>
                             <div class="product-info-model-list">
-
                                 <% var dem=0; if (product.pro_img1.length> 11){ %>
                                     <div class="product-info-model-item active text-left" data-model="basic" id="img1"
                                         onclick="change_service('img1', '<%= product.pro_img1%>')">
-                                        <div class="product-info-model-item-title simg-body2 simg-gray600">ギルボヘ</div>
+                                        <div class="product-info-model-item-title simg-body2 simg-gray600">Dạng cơ bản</div>
                                         <div class="product-info-model-item-subTitle simg-body4 simg-gray300">VR-Basic
                                         </div>
                                     </div>
@@ -94,7 +100,7 @@
                                                             id="img3"
                                                             onclick="change_service('img3', '<%= product.pro_img3%>')">
                                                             <div class="product-info-model-item-title simg-body2 simg-gray600"
-                                                                style="color: #2D5FAB; font-weight: bold;">マルチモニター</div>
+                                                                style="color: #2D5FAB; font-weight: bold;">Đa màn hình</div>
                                                             <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
                                                                 style="color: #2D5FAB; font-weight: bold;">
                                                                 VR-Multi-monitor</div>
@@ -105,7 +111,7 @@
                                                                 onclick="change_service('img3', '<%= product.pro_img3%>')">
                                                                 <div
                                                                     class="product-info-model-item-title simg-body2 simg-gray600">
-                                                                    マルチモニター</div>
+                                                                    Đa màn hình</div>
                                                                 <div
                                                                     class="product-info-model-item-subTitle simg-body4 simg-gray300">
                                                                     VR-Multi-monitor</div>
@@ -121,7 +127,7 @@
                                                                         onclick="change_service('img4', '<%= product.pro_img4%>')">
                                                                         <div class="product-info-model-item-title simg-body2 simg-gray600"
                                                                             style="color: #2D5FAB; font-weight: bold;">
-                                                                            デスクタイプ</div>
+                                                                            Dạng để bàn</div>
                                                                         <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
                                                                             style="color: #2D5FAB; font-weight: bold;">
                                                                             VR-Desk</div>
@@ -132,7 +138,7 @@
                                                                             onclick="change_service('img4', '<%= product.pro_img4%>')">
                                                                             <div
                                                                                 class="product-info-model-item-title simg-body2 simg-gray600">
-                                                                                デスクタイプ</div>
+                                                                                Dạng để bàn</div>
                                                                             <div
                                                                                 class="product-info-model-item-subTitle simg-body4 simg-gray300">
                                                                                 VR-Desk</div>
@@ -148,7 +154,7 @@
 
                                                                                     <div class="product-info-model-item-title simg-body2 simg-gray600 "
                                                                                         style="color: #2D5FAB; font-weight: bold;">
-                                                                                        マルチモニター + モーションベース</div>
+                                                                                        Đa màn hình + Đế chuyển động</div>
                                                                                     <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
                                                                                         style="color: #2D5FAB; font-weight: bold;">
                                                                                         Multi-monitor + motion
@@ -161,29 +167,30 @@
 
                                                                                         <div class="product-info-model-item-title simg-body2 simg-gray600 "
                                                                                             style="color: #2D5FAB; font-weight: bold;">
-                                                                                            マルチモニター + モーションベース</div>
+                                                                                            Đa màn hình + Đế chuyển động</div>
                                                                                         <div class="product-info-model-item-subTitle simg-body4 simg-gray300"
                                                                                             style="color: #2D5FAB; font-weight: bold;">
                                                                                             Multi-monitor + motion
                                                                                             base version</div>
                                                                                     </div>
                                                                                     <% }} %>
+                               
                             </div>
                         </div>
 
                         <%}%>
                             <div class="product-info-feature">
                                 <div class="product-info-feature">
-                                    <div class="product-info-feature-title simg-title4 text-left">Features</div>
+                                    <div class="product-info-feature-title simg-title4 text-left">Đặc trưng</div>
                                     <ul class="product-info-feature-contents text-left">
-                                        <%- product.pro_content_ja%>
+                                        <%- product.pro_content_vi%>
                                     </ul>
                                 </div>
                             </div>
                             <div class="product-info-reference">
                                 <% if(product.video_page=='on' ){%>
                                     <button class="product-info-reference-button simg-body3 text-center simg-bg-gray100"
-                                        id="popupButton" onclick="showVideoPage()">もっと見る</button>
+                                        id="popupButton" onclick="showVideoPage()">Xem thêm</button>
                                     <%}%>
                             </div>
                 </div>
@@ -201,14 +208,14 @@
                     <div class="popup-info">
                         <img src="/public/images/img-product-reference-logo.jpg">
                         <div>
-                            Volvo 220E 掘削機モデルは、仮想現実環境で実際の入力デバイスと連動して操作できるように開発されました。
+                            Mẫu máy xúc Volvo 220E đã được phát triển để vận hành cùng với các thiết bị đầu vào thực tế trong môi trường thực tế ảo.
 
-                            このシステムは、実際の機器の物理的特性とパフォーマンスを仮想現実に反映し、ユーザーは現実とほぼ同じパフォーマンスを体験できます。
+                            Hệ thống phản ánh các đặc điểm vật lý và hiệu suất của thiết bị thực trong môi trường thực tế ảo, cho phép người dùng trải nghiệm hiệu suất gần như giống hệt ngoài đời thực.
 
-                            これらの高度な機能により、Volvo 220E 掘削機の仮想現実シミュレーターは、業界をリードするトレーニング ツールとしての地位を確立しています。
+                            Những tính năng tiên tiến này định vị bộ mô phỏng thực tế ảo của máy xúc Volvo 220E như là công cụ đào tạo hàng đầu trong ngành.
                         </div>
                         <a id="inquiryButton" class="simg-body3 text-center simg-bg-blue simg-white"
-                            href="/ja/contact">お問い合わせ</a>
+                            href="/vi/contact">Liên hệ với chúng tôi</a>
                     </div>
                 </div>
             </div>

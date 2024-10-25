@@ -86,22 +86,85 @@
           <form method="post" action="/admin/news-proUpdate" >
             <tr>
               <td class="">
-                <label for="news_title">Title</label>
+                <label for="news_title">Title Korean</label>
               </td>
               <td class="">
-                <input type="text" placeholder="Type title " class="form-control" id="news_title" name="news_title" value="<%= news.news_title %>" 
+                <input type="text" class="form-control" id="news_title" name="news_title" value="<%= news.news_title %>" 
                   required />
               </td>
             </tr>
+
             <tr>
               <td class="">
-                <label for="news_content">Content</label>
+                <label for="news_title">Title Korean</label>
               </td>
               <td class="">
-                <input type="text" placeholder="Type content " class="form-control" id="news_content"
+                <input type="text"  class="form-control" id="news_title_en" name="news_title_en" value="<%= news.news_title_en %>" 
+                  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="news_title">Title Japanese</label>
+              </td>
+              <td class="">
+                <input type="text"  class="form-control" id="news_title_en" name="news_title_ja" value="<%= news.news_title_ja %>" 
+                  required />
+              </td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid red;">
+              <td class="">
+                <label for="news_title">Title Vietnamese</label>
+              </td>
+              <td class="">
+                <input type="text" class="form-control" id="news_title_vi" name="news_title_vi" value="<%= news.news_title_vi %>" 
+                  required />
+              </td>
+            </tr>
+
+
+            <tr>
+              <td class="">
+                <label for="news_content">Content Korean</label>
+              </td>
+              <td class="">
+                <input type="text" class="form-control" id="news_content"
                   name="news_content" required value="<%= news.news_content %>" />
               </td>
             </tr>
+
+            <tr>
+              <td class="">
+                <label for="news_content_en">Content English</label>
+              </td>
+              <td class="">
+                <input type="text"  class="form-control" id="news_content_en"
+                  name="news_content_en" required value="<%= news.news_content_en %>" />
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="news_content_ja">Content Japanese</label>
+              </td>
+              <td class="">
+                <input type="text"  class="form-control" id="news_content_ja"
+                  name="news_content_ja" required value="<%= news.news_content_ja %>" />
+              </td>
+            </tr>
+
+            <tr  style="border-bottom: 1px solid red;">
+              <td class="">
+                <label for="news_content_vi">Content Vietnamese</label>
+              </td>
+              <td class="">
+                <input type="text"  class="form-control" id="news_content_vi"
+                  name="news_content_vi" required value="<%= news.news_content_vi %>" />
+              </td>
+            </tr>
+
 
             <tr>
               <td class="">

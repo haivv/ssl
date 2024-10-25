@@ -291,6 +291,17 @@ function addFileShow5() {
                 <span class="error" id="pro_title_err"> </span>
               </td>
             </tr>
+
+            <tr>
+              <td class="">
+                <label for="pro_title_vi">Title Vietnamese</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title Vietnamese " class="form-control" id="pro_title_vi" name="pro_title_vi" value="<%= product.pro_title_vi %>"
+                  required />
+                <span class="error" id="pro_title_err"> </span>
+              </td>
+            </tr>
             
 
             <tr>
@@ -388,6 +399,7 @@ function addFileShow5() {
                   </script>
               </td>
             </tr>
+
             <tr>
               <td class="">
                 <label for="product_content">Feature Japanese</label>
@@ -395,6 +407,17 @@ function addFileShow5() {
               <td class="">
                   <textarea id="editor_ja" name="pro_content_ja"><%- product.pro_content_ja%></textarea>
                   <script src="/public/javascripts/admin/Ckeditor_product_ja.js">
+                  </script>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="product_content">Feature Vietnamese</label>
+              </td>
+              <td class="">
+                  <textarea id="editor_vi" name="pro_content_vi"><%- product.pro_content_vi%></textarea>
+                  <script src="/public/javascripts/admin/Ckeditor_product_vi.js">
                   </script>
               </td>
             </tr>

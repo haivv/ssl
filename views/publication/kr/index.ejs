@@ -1,11 +1,5 @@
 
 <%- include('header') %>
-<style>
-    .news-item {
-        width: calc(25% - 0px) !important;
-    }
-</style>
-
     <section class="main-container simg-white simg-bg-tangerine">
         <div class="main-title simg-bg-tangerine simg-bg-white">
             중장비 훈련 VR 시뮬레이터 <br>
@@ -17,33 +11,33 @@
         <div class="simulator simg-bg-white">
             <iframe src="https://www.youtube.com/embed/U9CL2skuM-M?si=9ImnxfBQQqkpU5q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type simg-body3 text-left simg-tangerine">중장비 시뮬레이터</p>
+                <p class="simulator-type simg-body2 text-left simg-tangerine">중장비 시뮬레이터</p>
                 <h3 class="simulator-title simg-title2 text-left simg-black">굴착기 시뮬레이터</h3>
                 <p class="simulator-description simg-body3 text-left simg-gray500">굴착기 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
-                <a href="/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
+                <a href="/product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
             </div>
         </div>
         <div class="simulator simg-bg-white">
             <iframe src="https://www.youtube.com/embed/hU2xK6LCUeo?si=9xt2B9Nd0TwQZR16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type simg-body3 text-left simg-tangerine">중장비 시뮬레이터</p>
+                <p class="simulator-type simg-body2 text-left simg-tangerine">중장비 시뮬레이터</p>
                 <h3 class="simulator-title simg-title2 text-left simg-black">지게차 시뮬레이터</h3>
                 <p class="simulator-description simg-body3 text-left simg-gray500">지게차 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
-                <a href="product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
+                <a href="/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
             </div>
         </div>
     </section>
-    <section class="client-container">
+    <section class="partnership-container">
         <div class="partnership-banner">
             <div>
                 <div class="partnership-type simg-body2 text-left simg-blue simg-bg-white">R&D</div>
                 <div class="partnership-title simg-title2 text-left simg-white">각 분야 전문가들을 위한 맞춤 솔루션 제공</div>
-                <div class="partnership-description simg-body1 text-left simg-white simg-opacity60">최고의 솔루션으로 기업에 맞춤형 혁신을 제공</div>
+                <div class="partnership-description simg-body2 text-left simg-white simg-opacity80">최고의 솔루션으로 기업에 맞춤형 혁신을 제공</div>
             </div>
             <a href="/r-d" class="partnership-detail-button simg-body2 text-center simg-blue simg-bg-white">자세히보기</a>
         </div>
     </section>
-    <section class="news-container mt-3 simg-page-bg">
+    <section class="news-container simg-page-bg">
         <div class="section-title simg-heading4 text-center simg-black">LATEST NEWS</div>
         <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">최신 기술로 산업 안전을 혁신하는 SimG의 소식과 뉴스를 확인하세요.</p>
         <button class="button-arrow" id="news-prev-button"><img src="./images/btn-arrow-left.png" alt="Before-News"></button>
@@ -54,9 +48,9 @@
                     <img src="./uploads/news/<%= news.news_cover_image %>" alt="News Image 1">
                     <div class="news-content simg-bg-white">
                         <span class="news-category">&nbsp;</span>
-                        <span class="news-date simg-body3 text-left simg-gray400"><%= news.news_date %></span>
+                        <span class="news-date simg-body4 text-left simg-gray400"><%= news.news_date %></span>
                         <div class="news-title simg-body2 text-left simg-black"><%= news.news_title %></div>
-                        <p class="news-description simg-body4 text-left simg-gray400">
+                        <p class="news-description simg-body3 text-left simg-gray400">
                             <% 
                                 var words = news.news_content.split(' ');
                                 var truncatedContent = words.slice(0, 9).join(' ');
@@ -94,9 +88,6 @@
         </div>
         <button class="button-arrow swiper-button-next simg-gray300" id="client-next-button"></button>
     </section>
-
-
-    
 
     <div class="contact-title-bg simg-page-bg">
         <section class="contact-container">

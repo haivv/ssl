@@ -10,24 +10,17 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 
 const cheerio = require('cheerio'); // to handle HTML string
-var sqlCat1 = "SELECT pro_id, pro_title_en FROM product where cat_id='1'";
-	var sqlCat2 = "SELECT pro_id, pro_title_en FROM product where cat_id='2'";
-	var sqlCat3 = "SELECT pro_id, pro_title_en FROM product where cat_id='3'";
-	var sqlCat4 = "SELECT pro_id, pro_title_en FROM product where cat_id='4'";
-	var sqlCat5 = "SELECT pro_id, pro_title_en FROM product where cat_id='5'";
+var sqlCat1 = "SELECT pro_id, pro_title_vi FROM product where cat_id='1'";
+	var sqlCat2 = "SELECT pro_id, pro_title_vi FROM product where cat_id='2'";
+	var sqlCat3 = "SELECT pro_id, pro_title_vi FROM product where cat_id='3'";
+	var sqlCat4 = "SELECT pro_id, pro_title_vi FROM product where cat_id='4'";
+	var sqlCat5 = "SELECT pro_id, pro_title_vi FROM product where cat_id='5'";
 
-  router.get('/checkcaptcha', (req, res) => {
-	res.render('publication/en/capcha')
-  });
 
 
 
 /* GET home page. */
 
-
-  router.get('/checkcaptcha', (req, res) => {
-	res.render('publication/en/captcha')
-  });
 
 router.get('/', function (req, res, next) {
 	console.log("Index page");
@@ -54,7 +47,7 @@ router.get('/', function (req, res, next) {
 										res.render('error');
 									}
 									else {
-										res.render('publication/en/index', { current_page, message, dataClient, dataNews, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 });
+										res.render('publication/vi/index', { current_page, message, dataClient, dataNews, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 });
 									}
 								});
 							}
@@ -93,7 +86,7 @@ router.post('/contactus-proAdd', (req, res) => {
 			throw error;
 		}
 		else {
-			res.redirect('/en/?message=Thank you for your contact#form-section');
+			res.redirect('/vi/?message=Cảm ơn bạn đã gửi lời nhắn tới chúng tôi.#form-section');
 		}
 	});
 
@@ -122,7 +115,7 @@ router.get('/aboutus', function (req, res, next) {
 				database.query(sqlCat4, function (error, dataCat4) {
 					database.query(sqlCat5, function (error, dataCat5) {
 						database.query(sqlAbout, function (error, dataAbout) {
-							res.render('publication/en/aboutus', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataAbout });
+							res.render('publication/vi/aboutus', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataAbout });
 						});
 					});
 
@@ -163,7 +156,7 @@ router.get('/news', function (req, res, next) {
 										//throw error;
 										res.render('error');
 									} else {
-										res.render('publication/en/news', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews, total_pages, page, total_records });
+										res.render('publication/vi/news', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews, total_pages, page, total_records });
 									}
 								});
 							}
@@ -177,7 +170,6 @@ router.get('/news', function (req, res, next) {
 		});
 
 	});
-
 });
 
 
@@ -219,7 +211,7 @@ router.get('/news/:page', function (req, res, next) {
 											res.render('error');
 										}
 										else {
-											res.render('publication/en/news', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews, total_pages, page, total_records });
+											res.render('publication/vi/news', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews, total_pages, page, total_records });
 										}
 									});
 								}
@@ -256,7 +248,7 @@ router.get('/news-detail/:news_id', function (req, res, next) {
 								res.render('error');
 							}
 							else {
-									res.render('publication/en/news-detail', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews });
+									res.render('publication/vi/news-detail', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews });
 									
 							}
 						});
@@ -301,7 +293,7 @@ router.get('/pat-cer', function (req, res, next) {
 										//throw error;
 										res.render('error');
 									} else {
-										res.render('publication/en/pat-cer', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataPatCer, total_pages, page, total_records });
+										res.render('publication/vi/pat-cer', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataPatCer, total_pages, page, total_records });
 									}
 								});
 							}
@@ -333,7 +325,7 @@ router.get('/r-d', function (req, res, next) {
 						database.query(sqlQa, function (error, dataQa) {
 							database.query(sqlPatnership, function (error, dataPatnership) {
 
-						res.render('publication/en/partnership', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 , dataQa, dataPatnership});
+						res.render('publication/vi/partnership', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 , dataQa, dataPatnership});
 					});
 					});
 
@@ -379,7 +371,7 @@ router.get('/client', function (req, res, next) {
 										//throw error;
 										res.render('error');
 									} else {
-										res.render('publication/en/client', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataClient, total_pages, page, total_records });
+										res.render('publication/vi/client', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataClient, total_pages, page, total_records });
 									}
 								});
 							}
@@ -408,7 +400,7 @@ router.get('/contact', function (req, res, next) {
 					database.query(sqlCat5, function (error, dataCat5) {
 
 
-						res.render('publication/en/contact', { current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 });
+						res.render('publication/vi/contact', { current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 });
 
 
 
@@ -439,7 +431,7 @@ router.get('/product/:product_id', function (req, res, next) {
 											throw error;
 										}
 										else {
-											res.render('publication/en/product', { title: 'Product View', current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5,dataProduct });
+											res.render('publication/vi/product', { title: 'Product View', current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5,dataProduct });
 										}
 									});
 
@@ -463,7 +455,7 @@ router.get('/privacy', function (req, res, next) {
 			database.query(sqlCat3, function (error, dataCat3) {
 				database.query(sqlCat4, function (error, dataCat4) {
 					database.query(sqlCat5, function (error, dataCat5) {
-						res.render('publication/en/privacy-policy', { 
+						res.render('publication/vi/privacy-policy', { 
 							current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 
 						});
 					});
@@ -481,7 +473,7 @@ router.get('/term', function (req, res, next) {
 			database.query(sqlCat3, function (error, dataCat3) {
 				database.query(sqlCat4, function (error, dataCat4) {
 					database.query(sqlCat5, function (error, dataCat5) {
-						res.render('publication/en/term-of-service', { 
+						res.render('publication/vi/term-of-service', { 
 							current_page,message, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 
 						});
 					});

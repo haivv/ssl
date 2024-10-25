@@ -1,13 +1,38 @@
 <%- include('header') %>
     <style>
-        .news-item {
-            width: calc(25% - 0px) !important;
+        .menu-detail-button,
+        .partnership-detail-button {
+            padding: 2% 3%;
         }
 
-        @media screen and (max-width: 710px) {
-            .simulator {
-                height: 753px;
+        .main-title {
+            font-size: 24px;
+            font-weight: 700;
+            clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 0% 100%);
+        }
 
+        .simulator-title {
+            font-size: 28px;
+        }
+        @media screen and (min-width: 1200px) and (max-width: 1419px) {
+            .nav-menu a {
+                padding: 34px 8px 20px 8px;
+            }
+
+            .simg-body3 {
+                font-size: 13px !important;
+            }
+        }
+
+        @media screen and (min-width: 480px) and (max-width: 767px) {
+            .main-title {
+                font-size: 22px !important;
+            }
+        }
+
+        @media screen and (max-width: 479px) {
+            .main-title {
+                font-size: 18px !important;
             }
         }
     </style>
@@ -46,7 +71,7 @@
             </div>
         </div>
     </section>
-    <section class="client-container">
+    <section class="partnership-container">
         <div class="partnership-banner">
             <div>
                 <div class="partnership-type simg-body2 text-left simg-blue simg-bg-white">R&D</div>

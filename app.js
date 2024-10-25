@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
 var enRouter = require('./routes/en');
 var jaRouter = require('./routes/ja');
+var viRouter = require('./routes/vi');
 var session = require('express-session');
 
 
@@ -101,6 +102,7 @@ app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/en', enRouter);
 app.use('/ja', jaRouter);
+app.use('/vi', viRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

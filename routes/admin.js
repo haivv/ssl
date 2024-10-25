@@ -822,17 +822,17 @@ router.post('/news-proAdd', (req, res) => {
 
 	var dateString = year + '-' + month + '-' + day;
 
-	const { news_title, news_content, news_cover_image } = req.body;
+	const { news_title,news_title_en,news_title_ja,news_title_vi, news_content, news_content_en,news_content_ja,news_content_vi,   news_cover_image } = req.body;
 
 	const news_cover_image2 = dateString + '_' + news_cover_image;
 
 	//console.log(news_content);
 	var sql2 = `
 				INSERT INTO news
-				(news_title, news_content, news_cover_image,news_date )
-				VALUES (?,?,?, ?)`;
+				(news_title, news_title_en, news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image,news_date )
+				VALUES (?,?,?,?,?,?,?,?,?, ?)`;
 	// res.send(sql);
-	database.query(sql2, [news_title, news_content, news_cover_image2, dateString], function (error, data2) {
+	database.query(sql2, [news_title, news_title_en, news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image2, dateString], function (error, data2) {
 		if (error) {
 			res.redirect('/admin/error');
 		}
@@ -894,7 +894,7 @@ router.post('/news-proUpdate', function (req, res, next) {
 	var day = ('0' + today.getDate()).slice(-2);
 	var dateString = year + '-' + month + '-' + day;
 
-	const { news_title, news_content, news_cover_image, news_cover_image_db, news_id } = req.body;
+	const { news_title, news_title_en,news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image, news_cover_image_db, news_id } = req.body;
 
 	var originalString = news_cover_image_db.substring(11);
 
@@ -910,12 +910,18 @@ router.post('/news-proUpdate', function (req, res, next) {
 	var sql = `
 	UPDATE news 
 	SET news_title = ?,
+	news_title_en = ?,
+	news_title_ja = ?,
+	news_title_vi = ?,
 	news_content = ?,
+	news_content_en = ?,
+	news_content_ja = ?,
+	news_content_vi = ?,
 	news_date = ?,
 	news_cover_image = ?
 	WHERE news_id = "${news_id}"
 	`;
-	database.query(sql, [news_title, news_content, dateString, news_cover_image2], function (error, data) {
+	database.query(sql, [news_title,news_title_en,news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, dateString, news_cover_image2], function (error, data) {
 
 		if (error) {
 			throw error;
@@ -1695,7 +1701,7 @@ router.post('/product-proAdd', (req, res) => {
 	var dateString = year + '-' + month + '-' + day;
 
 
-	const {  selectOption, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_content,pro_content_en, pro_content_ja,type_classify, video_page } = req.body;
+	const {  selectOption, pro_title, pro_title_en, pro_title_ja, pro_title_vi,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_content,pro_content_en, pro_content_ja,pro_content_vi,type_classify, video_page } = req.body;
 	var pro_img12 = dateString + '_' + pro_img1;
 	var pro_img22 = dateString + '_' + pro_img2;
 	var pro_img32 = dateString + '_' + pro_img3;
@@ -1704,10 +1710,10 @@ router.post('/product-proAdd', (req, res) => {
 
 	var sql = `
 				INSERT INTO product
-				(cat_id, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_content,pro_content_en, pro_content_ja,type_classify, video_page )
-				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+				(cat_id, pro_title, pro_title_en, pro_title_ja, pro_title_vi,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_content,pro_content_en, pro_content_ja,pro_content_vi,type_classify, video_page )
+				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 	// res.send(sql);
-	database.query(sql, [selectOption, pro_title, pro_title_en, pro_title_ja,pro_img12, pro_img22,pro_img32,pro_img42,pro_img52, pro_content,pro_content_en, pro_content_ja,type_classify, video_page], function (error, data2) {
+	database.query(sql, [selectOption, pro_title, pro_title_en, pro_title_ja,pro_title_vi,pro_img12, pro_img22,pro_img32,pro_img42,pro_img52, pro_content,pro_content_en, pro_content_ja,pro_content_vi, type_classify, video_page], function (error, data2) {
 		if (error) {
 			throw error;
 		}
@@ -1773,7 +1779,7 @@ router.post('/product-proUpdate', function (req, res, next) {
 	var day = ('0' + today.getDate()).slice(-2);
 	var dateString = year + '-' + month + '-' + day;
 
-	const { pro_id, selectOption, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_db_img1, pro_db_img2,pro_db_img3,pro_db_img4,pro_db_img5,   pro_content,pro_content_en, pro_content_ja,type_classify, video_page } = req.body;
+	const { pro_id, selectOption, pro_title, pro_title_en, pro_title_ja,pro_title_vi,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_db_img1, pro_db_img2,pro_db_img3,pro_db_img4,pro_db_img5,   pro_content,pro_content_en, pro_content_ja,pro_content_vi,type_classify, video_page } = req.body;
 
 	var originalString1 = pro_db_img1.substring(11);
 	var originalString2 = pro_db_img2.substring(11);
@@ -1819,6 +1825,7 @@ router.post('/product-proUpdate', function (req, res, next) {
 	pro_title = ?, 
 	pro_title_en = ?,
 	pro_title_ja = ?,
+	pro_title_vi = ?,
 	pro_img1 = ?,
 	pro_img2 = ?,
 	pro_img3 = ?,
@@ -1827,13 +1834,14 @@ router.post('/product-proUpdate', function (req, res, next) {
 	pro_content = ?,
 	pro_content_en = ?,
 	pro_content_ja = ?,
+	pro_content_vi = ?,
 	type_classify = ?,
 	video_page = ?
 
 	WHERE pro_id = "${pro_id}"
 	`;
 
-	database.query(sql, [ selectOption, pro_title, pro_title_en, pro_title_ja,pro_img12, pro_img22,pro_img32,pro_img42,pro_img52, pro_content,pro_content_en, pro_content_ja,type_classify, video_page], function (error) {
+	database.query(sql, [ selectOption, pro_title, pro_title_en, pro_title_ja,pro_title_vi,pro_img12, pro_img22,pro_img32,pro_img42,pro_img52, pro_content,pro_content_en, pro_content_ja,pro_content_vi,type_classify, video_page], function (error) {
 
 		if (error) {
 			throw error;

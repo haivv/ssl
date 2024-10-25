@@ -1,0 +1,45 @@
+<%- include('header') %>
+
+    <div class="menu-tag simg-body4 simg-gray400 "><a class="index-tag  simg-gray500" href="/vi/">Trang chủ</a> > <a
+            class="aboutUs-tag" href="/news/">Tin tức</a></div>
+    <section class="latest-news-detail-container">
+        <div class="latest-news-detail-content">
+
+
+            <% dataNews.forEach(function(news) { let cat_id=news.news_id; %>
+                <div class="detail-news-title simg-title1 text-left simg-black">
+                    <%= news.news_title_vi%>
+                </div>
+                <div class="detail-news-upload-date simg-body3 text-left simg-gray500">Ngày đăng: <%= news.news_date%>
+                </div>
+                <img src="/public/uploads/news/<%= news.news_cover_image %>">
+                <div class="detail-news-introduce simg-body2 text-left simg-black">
+                    <%= news.news_content_vi%>
+                </div>
+
+                <% }); %>
+                  
+
+    </section>
+
+
+    <style>
+        .pagination .page-item.active .page-link {
+            color: white !important;
+            background: #ccc;
+        }
+
+        .latest-news-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 230px;
+            padding: 10px;
+        }
+
+        .latest-news-info p {
+            margin: 5px 0;
+        }
+    </style>
+
+    <div id="simg-templete-footer"><%- include('footer') %></div>
