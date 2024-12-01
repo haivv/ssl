@@ -73,8 +73,13 @@ router.post('/contactus-proAdd', (req, res) => {
 	var dateString = year + '-' + month + '-' + day;
 
 
+
+
 	const { txtname, txtemail, txtphone, txtcompany, txtsubject, txtmessage } = req.body;
 	// console.log(pro_content);
+	var checkEmailSql = `SELECT COUNT(*) AS count FROM contact_form WHERE contact_form_email = ?`;
+	database.query(checkEmailSql, [txtemail], function (error, results) {
+		if (results[0].count < 2) {
 
 	var sql = `
 				INSERT INTO contact_form
@@ -90,6 +95,11 @@ router.post('/contactus-proAdd', (req, res) => {
 		}
 	});
 
+}
+else{
+	res.redirect('/en/?message=Cảm ơn bạn đã gửi lời nhắn tới chúng tôi.#form-section');
+}
+});
 
 
 

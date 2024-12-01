@@ -79,25 +79,37 @@ router.post('/contactus-proAdd', (req, res) => {
 
 	var dateString = year + '-' + month + '-' + day;
 
+	
+
 
 	const { txtname, txtemail, txtphone, txtcompany, txtsubject, txtmessage } = req.body;
 	// console.log(pro_content);
 
-	var sql = `
-				INSERT INTO contact_form
-				(contact_form_name, contact_form_email, contact_form_phone,contact_form_company, contact_form_subject, contact_form_message, contact_form_date )
-				VALUES (?,?,?,?,?,?,?)`;
-	// res.send(sql);
-	database.query(sql, [txtname, txtemail, txtphone, txtcompany, txtsubject, txtmessage, dateString], function (error) {
-		if (error) {
-			throw error;
-		}
-		else {
-			res.redirect('/en/?message=Thank you for your contact#form-section');
-		}
+	var checkEmailSql = `SELECT COUNT(*) AS count FROM contact_form WHERE contact_form_email = ?`;
+
+	database.query(checkEmailSql, [txtemail], function (error, results) {
+		if (results[0].count < 2) {
+
+		var sql = `
+					INSERT INTO contact_form
+					(contact_form_name, contact_form_email, contact_form_phone,contact_form_company, contact_form_subject, contact_form_message, contact_form_date )
+					VALUES (?,?,?,?,?,?,?)`;
+		// res.send(sql);
+		database.query(sql, [txtname, txtemail, txtphone, txtcompany, txtsubject, txtmessage, dateString], function (error) {
+			if (error) {
+				throw error;
+			}
+			else {
+				res.redirect('/en/?message=Thank you for your contact#form-section');
+			}
+		});
+
+
+	}
+	else{
+		res.redirect('/en/?message=Thank you for your contact#form-section');
+	}
 	});
-
-
 
 
 	// 		}

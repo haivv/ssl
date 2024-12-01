@@ -74,6 +74,10 @@ router.post('/contactus-proAdd', (req, res) => {
 	const { txtname, txtemail, txtphone, txtcompany, txtsubject, txtmessage } = req.body;
 	// console.log(pro_content);
 
+	var checkEmailSql = `SELECT COUNT(*) AS count FROM contact_form WHERE contact_form_email = ?`;
+	database.query(checkEmailSql, [txtemail], function (error, results) {
+		if (results[0].count < 2) {
+
 	var sql = `
 				INSERT INTO contact_form
 				(contact_form_name, contact_form_email, contact_form_phone,contact_form_company, contact_form_subject, contact_form_message, contact_form_date )
@@ -87,6 +91,12 @@ router.post('/contactus-proAdd', (req, res) => {
 			res.redirect('/ja/?message=お問い合わせいただきありがとうございます#form-section');
 		}
 	});
+
+}
+else{
+	res.redirect('/en/?message=お問い合わせいただきありがとうございます#form-section');
+}
+});
 
 
 
