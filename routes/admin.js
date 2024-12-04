@@ -917,11 +917,11 @@ router.post('/news-proUpdate', function (req, res, next) {
 	news_content_en = ?,
 	news_content_ja = ?,
 	news_content_vi = ?,
-	news_date = ?,
+	
 	news_cover_image = ?
 	WHERE news_id = "${news_id}"
 	`;
-	database.query(sql, [news_title,news_title_en,news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, dateString, news_cover_image2], function (error, data) {
+	database.query(sql, [news_title,news_title_en,news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi,  news_cover_image2], function (error, data) {
 
 		if (error) {
 			throw error;
