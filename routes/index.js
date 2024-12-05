@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
 	var current_page = '';
 	const message = req.query.message;
 	var sqlClient = "SELECT * FROM client";
-	var sqlNews = "SELECT * FROM news ORDER BY news_id DESC";
+	var sqlNews = "SELECT * FROM news ORDER BY news_date DESC";
 
 	database.query(sqlCat1, function (error, dataCat1) {
 		database.query(sqlCat2, function (error, dataCat2) {
@@ -156,7 +156,7 @@ router.get('/news', function (req, res, next) {
 								var total_pages = Math.ceil(total_records / per_page_record);
 
 								var start_from = (page - 1) * per_page_record;
-								var sqlpage = `SELECT* FROM news ORDER BY news_id DESC LIMIT ${start_from}, ${per_page_record}`;
+								var sqlpage = `SELECT* FROM news ORDER BY news_date DESC LIMIT ${start_from}, ${per_page_record}`;
 
 								database.query(sqlpage, function (error, dataNews) {
 									if (error) {
@@ -210,7 +210,7 @@ router.get('/news/:page', function (req, res, next) {
 									var total_pages = Math.ceil(total_records / per_page_record);
 
 									var start_from = (page - 1) * per_page_record;
-									var sqlpage = `SELECT* FROM news ORDER BY news_id DESC LIMIT ${start_from}, ${per_page_record}`;
+									var sqlpage = `SELECT* FROM news ORDER BY news_date DESC LIMIT ${start_from}, ${per_page_record}`;
 
 									database.query(sqlpage, function (error, dataNews) {
 										if (error) {
