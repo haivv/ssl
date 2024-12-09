@@ -6,7 +6,7 @@
             <tr>
                 <% dataNews.forEach(function(news) { let cat_id=news.news_id; %>
                     <td class="latest-news-item">
-                        <img src="/public/uploads/news/<%= news.news_cover_image %>" width="400px" height="280px">
+                        <img src="/public/uploads/news/<%= news.news_cover_image %>" width="400px" >
                         <div class="latest-news-info">
                             <p class="latest-news-info-title  simg-title4">
                                 <a href="/ja/news-detail/<%= news.news_id%>">
