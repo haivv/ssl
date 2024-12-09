@@ -88,7 +88,7 @@ router.post('/contactus-proAdd', (req, res) => {
 	var checkEmailSql = `SELECT COUNT(*) AS count FROM contact_form WHERE contact_form_email = ?`;
 
 	database.query(checkEmailSql, [txtemail], function (error, results) {
-		if (results[0].count < 2) {
+		if (results[0].count < 1 && txtname.length > 2 && txtemail.length > 6 && txtphone.length > 8 && txtcompany.length > 2 && txtsubject.length > 6 && txtmessage.length > 10) {
 
 		var sql = `
 					INSERT INTO contact_form
