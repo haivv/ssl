@@ -493,4 +493,16 @@ router.get('/term', function (req, res, next) {
 	});
 });
 
+router.get('/doc/:filename', function (req, res, next) {
+	const filename = req.params.filename; // Lấy tên file từ URL
+	const filePath = path.join(__dirname, 'public', 'doc', filename);
+  
+	// Kiểm tra xem file có tồn tại không
+	res.download(filePath, (err) => {
+	  if (err) {
+		// Nếu có lỗi (ví dụ file không tồn tại)
+		res.status(404).send('File not found');
+	  }
+	});
+});
 module.exports = router;
