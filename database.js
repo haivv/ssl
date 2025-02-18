@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	database: 'simglabcom',
 	user: 'root',
-	password: 'simgadmin'
+	password: 'Simg@'
 });
 //password: 'simgadmin'
 //password: 'Simg@'
