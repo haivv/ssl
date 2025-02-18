@@ -1,0 +1,175 @@
+<style>
+    .ql-size {
+      font-size: inherit;
+    }
+  
+    .ql-size.ql-picker {
+      width: 80px;  /* Điều chỉnh nếu cần */
+    }
+  
+    .ql-size.ql-picker .ql-picker-label {
+      line-height: 1.5;
+      padding-right: 15px;
+    }
+  
+    .ql-size.ql-picker .ql-picker-item {
+      line-height: 1.5;
+    }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-label[data-value='12px']::before,
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value='12px']::before {
+      content: '12px';
+  }
+  
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-label[data-value='16px']::before,
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value='16px']::before {
+      content: '16px';
+  }
+  
+  
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-label[data-value='20px']::before,
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value='20px']::before {
+      content: '20px';
+  }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-label[data-value='24px']::before,
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value='24px']::before {
+      content: '24px';
+  }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-label[data-value='28px']::before,
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value='28px']::before {
+      content: '28px';
+  }
+  
+  
+  
+  
+    </style>
+
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<div id="trinhsoanthao">
+    <div id="editor"></div>
+    <!-- <button onclick="saveContent()">Save</button> -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/javascripts/image-resize.min.js"></script>
+    <script>
+      
+      var Size = Quill.import('attributors/style/size');
+      Size.whitelist = ['12px', '16px', '20px', '24px', '28px'];
+      Quill.register(Size, true);
+      
+
+      var quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Type your content...',
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline'],
+            [{ 'color': [] }],
+            [{ 'font': [] }],          // dropdown with defaults from theme
+            [{ 'align': ''}, {'align': 'center'},{'align': 'right'},],
+            [{ 'size': ['12px', '16px', '20px', '24px', '28px'] }],
+            ['image', 'video', 'link']
+          ],
+          imageResize: {
+          }
+        }
+      });
+
+    
+    //   function saveContent() {
+    //     const content = quill.root.innerHTML;
+    //     let searchoption = document.getElementById('searchoption').value;
+    //     let txtTitle = document.getElementById('txttitle').value;
+    //     let txtfileupload = document.getElementById('sendFileName').innerHTML;
+
+        
+
+    //     let formData = new URLSearchParams();
+    //     formData.append('content', content);
+    //     formData.append('searchoption', searchoption);
+    //     formData.append('txttitle', txtTitle);
+    //     formData.append('txtfileupload', txtfileupload);
+
+    //     fetch('/notice/proAddNotice', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/x-www-form-urlencoded',
+    //       },
+    //       body: formData
+    //     })
+    //       .then(window.location.href = '/notice/messadd');
+    //   }//saveContent
+
+
+      quill.getModule('toolbar').addHandler('image', () => {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.click();
+
+        input.onchange = () => {
+          const file = input.files[0];
+          if (/^image\//.test(file.type)) {
+            saveToServer(file).then((url) => {
+              const range = quill.getSelection(true);
+              quill.insertEmbed(range.index, 'image', url);
+            });
+          } else {
+            console.warn('You can only upload images');
+          }
+        };
+      });
+
+     
+
+      function saveToServer(file) {
+        return new Promise((resolve, reject) => {
+          const formData = new FormData();
+          formData.append('image', file);
+
+          fetch('/admin/upload_quil', {
+            method: 'POST',
+            body: formData
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.imageUrl) {
+                resolve(data.imageUrl);
+
+              } else {
+                reject('Upload failed');
+              }
+            })
+            .catch(error => {
+              reject('Upload error');
+            });
+        });
+      }
+
+       
+      // //count char
+      // function updateCharCount() {
+      //     let contentText = quill.getText();
+      //     let charCount = contentText.length - 1; // trừ đi ký tự xuống dòng cuối cùng
+      //     document.getElementById('charCount').innerText = charCount;
+      // }
+
+      // // Lắng nghe sự kiện text-change từ Quill editor
+      // quill.on('text-change', function() {
+      //     updateCharCount();
+      // });
+
+      //   // Gọi lần đầu tiên khi khởi tạo
+      //   updateCharCount();
+        
+      // //end count char
+
+
+
+    </script>
+
+  </div><!--end trinh soan thao-->

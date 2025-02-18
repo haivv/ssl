@@ -1,0 +1,442 @@
+<%- include('header') %>
+<style>
+  #addfile1,#addfile2,#addfile3,#addfile4,#addfile5  {
+      display: none;
+
+    }
+
+    #myfile_left {
+      width: 83%;
+      height: 40px;
+    }
+    .messBox{
+      position: relative;
+      z-index: 110;
+    }
+
+</style>
+  <script>
+    // Add product image 1
+    function addFileShow1() {
+      var modal = document.getElementById("addfile1");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile1() {
+      var modal = document.getElementById("addfile1");
+      modal.style.display = "none";
+    }
+    function hideAddFile1() {
+      var modal = document.getElementById("addfile1");
+      modal.style.display = "none";
+      var fileInput = document.getElementById('myfile1');
+      var fileName = fileInput.files[0].name;
+      document.getElementById("pro_img1").value = fileName;
+      document.fsubmitfile.submit();
+    }
+ // Add product image 2
+ function addFileShow2() {
+      var modal = document.getElementById("addfile2");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile2() {
+      var modal = document.getElementById("addfile2");
+      modal.style.display = "none";
+    }
+    function hideAddFile2() {
+      var modal = document.getElementById("addfile2");
+      modal.style.display = "none";
+      var fileInput = document.getElementById('myfile2');
+      var fileName = fileInput.files[0].name;
+      document.getElementById("pro_img2").value = fileName;
+      document.fsubmitfile.submit();
+    }
+
+     // Add product image 3
+ function addFileShow3() {
+      var modal = document.getElementById("addfile3");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile3() {
+      var modal = document.getElementById("addfile3");
+      modal.style.display = "none";
+    }
+    function hideAddFile3() {
+      var modal = document.getElementById("addfile3");
+      modal.style.display = "none";
+      var fileInput = document.getElementById('myfile3');
+      var fileName = fileInput.files[0].name;
+      document.getElementById("pro_img3").value = fileName;
+      document.fsubmitfile.submit();
+    }
+   // Add product image 4
+   function addFileShow4() {
+      var modal = document.getElementById("addfile4");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile4() {
+      var modal = document.getElementById("addfile4");
+      modal.style.display = "none";
+    }
+    function hideAddFile4() {
+      var modal = document.getElementById("addfile4");
+      modal.style.display = "none";
+      var fileInput = document.getElementById('myfile4');
+      var fileName = fileInput.files[0].name;
+      document.getElementById("pro_img4").value = fileName;
+      document.fsubmitfile.submit();
+    }
+ // Add product image 5
+ function addFileShow5() {
+      var modal = document.getElementById("addfile5");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile5() {
+      var modal = document.getElementById("addfile5");
+      modal.style.display = "none";
+    }
+    function hideAddFile5() {
+      var modal = document.getElementById("addfile5");
+      modal.style.display = "none";
+      var fileInput = document.getElementById('myfile5');
+      var fileName = fileInput.files[0].name;
+      document.getElementById("pro_img5").value = fileName;
+      document.fsubmitfile.submit();
+    }
+
+
+
+
+
+
+  </script>
+
+
+<!--show box to add image for product 1 -->
+<div id='addfile1' class='messBox'>
+  <div class='modalmess-content d-flex flex-column p-4'>
+    <div><button class=" btn btn-dark  " onclick='closeBoxAddfile1()'>X</button></div>
+    <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+    <div class="choosefile">
+      <form action="/admin/upload_product1" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile1" id="myfile1" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+        <label for="myfile1" id="myfile_left"><span id="hidfile1"></span> </label>
+        <label for="myfile1" id="myfile_select_btn">
+          <div class="btnfile" id="fileSelect"> 파일선택</div>
+        </label>
+        <script src="/javascripts/custom-file-input.js"></script>
+    </div>
+    <p class="d-flex flex-row-reverse">
+      <button class='btn btn-primary mt-3' onclick="hideAddFile1()">업로드</button>
+      </form>
+    </p>
+  </div>
+</div>
+
+<!--show box to add image for product 2 -->
+<div id='addfile2' class='messBox'>
+  <div class='modalmess-content d-flex flex-column p-4'>
+    <div><button class=" btn btn-dark  " onclick='closeBoxAddfile2()'>X</button></div>
+    <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+    <div class="choosefile">
+      <form action="/admin/upload_product2" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile2" id="myfile2" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+        <label for="myfile2" id="myfile_left"><span id="hidfile2"></span> </label>
+        <label for="myfile2" id="myfile_select_btn">
+          <div class="btnfile" id="fileSelect"> 파일선택</div>
+        </label>
+        <script src="/javascripts/custom-file-input.js"></script>
+    </div>
+    <p class="d-flex flex-row-reverse">
+      <button class='btn btn-primary mt-3' onclick="hideAddFile2()">업로드</button>
+      </form>
+    </p>
+  </div>
+</div>
+
+<!--show box to add image for product 3 -->
+<div id='addfile3' class='messBox'>
+  <div class='modalmess-content d-flex flex-column p-4'>
+    <div><button class=" btn btn-dark  " onclick='closeBoxAddfile3()'>X</button></div>
+    <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+    <div class="choosefile">
+      <form action="/admin/upload_product3" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile3" id="myfile3" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+        <label for="myfile3" id="myfile_left"><span id="hidfile3"></span> </label>
+        <label for="myfile3" id="myfile_select_btn">
+          <div class="btnfile" id="fileSelect"> 파일선택</div>
+        </label>
+        <script src="/javascripts/custom-file-input.js"></script>
+    </div>
+    <p class="d-flex flex-row-reverse">
+      <button class='btn btn-primary mt-3' onclick="hideAddFile3()">업로드</button>
+      </form>
+    </p>
+  </div>
+</div>
+
+<!--show box to add image for product 4 -->
+<div id='addfile4' class='messBox'>
+  <div class='modalmess-content d-flex flex-column p-4'>
+    <div><button class=" btn btn-dark  " onclick='closeBoxAddfile4()'>X</button></div>
+    <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+    <div class="choosefile">
+      <form action="/admin/upload_product4" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile4" id="myfile4" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+        <label for="myfile4" id="myfile_left"><span id="hidfile4"></span> </label>
+        <label for="myfile4" id="myfile_select_btn">
+          <div class="btnfile" id="fileSelect"> 파일선택</div>
+        </label>
+        <script src="/javascripts/custom-file-input.js"></script>
+    </div>
+    <p class="d-flex flex-row-reverse">
+      <button class='btn btn-primary mt-3' onclick="hideAddFile4()">업로드</button>
+      </form>
+    </p>
+  </div>
+</div>
+
+<!--show box to add image for product 5 -->
+<div id='addfile5' class='messBox'>
+  <div class='modalmess-content d-flex flex-column p-4'>
+    <div><button class=" btn btn-dark  " onclick='closeBoxAddfile5()'>X</button></div>
+    <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+    <div class="choosefile">
+      <form action="/admin/upload_product5" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile5" id="myfile5" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+        <label for="myfile5" id="myfile_left"><span id="hidfile5"></span> </label>
+        <label for="myfile5" id="myfile_select_btn">
+          <div class="btnfile" id="fileSelect"> 파일선택</div>
+        </label>
+        <script src="/javascripts/custom-file-input.js"></script>
+    </div>
+    <p class="d-flex flex-row-reverse">
+      <button class='btn btn-primary mt-3' onclick="hideAddFile5()">업로드</button>
+      </form>
+    </p>
+  </div>
+</div>
+
+
+
+
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3">
+      <%= title %>
+    </h1>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <!-- <tr>
+            
+            <th >Username</th>
+            <th >Password</th>
+
+          </tr> -->
+        </thead>
+        <tbody>
+          <form method="post" action="/admin/product-proAdd" name="fproAdd">
+            <tr>
+              <td class="">
+                <label for="product_category">Category</label>
+              </td>
+              <td class="">
+                <select class="form-select" id="selectOption" name="selectOption">
+                  <% let i=1; dataCate.forEach(function(category) { %>
+                    <option value="<%= category.cat_id %>">
+                      <%= category.cat_title %>
+                    </option>
+
+                    <%} );%>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="pro_title">Title Korean</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title Korean " class="form-control" id="pro_title" name="pro_title" 
+                  required />
+                <span class="error" id="pro_title_err"> </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="pro_title_en">Title English</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title English " class="form-control" id="pro_title_en" name="pro_title_en" 
+                  required />
+                <span class="error" id="pro_title_err"> </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="pro_title_ja">Title Japanese</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title Japanese " class="form-control" id="pro_title_ja" name="pro_title_ja" 
+                  required />
+                <span class="error" id="pro_title_err"> </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="pro_title_vn">Title Vietnamese</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title Vietnamese " class="form-control" id="pro_title_vi" name="pro_title_vi" 
+                  required />
+                <span class="error" id="pro_title_err"> </span>
+              </td>
+            </tr>
+            
+
+            <tr>
+              <td class="">
+                <label for="patcer_image">Image1</label>
+              </td>
+              <td class="">
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow1()"></i></span>
+                <input type="text" class="form-control" name="pro_img1" id="pro_img1" readonly>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="patcer_image">Image2</label>
+              </td>
+              <td class="">
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow2()"></i></span>
+                <input type="text" class="form-control" name="pro_img2" id="pro_img2" readonly>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="patcer_image">Image3</label>
+              </td>
+              <td class="">
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow3()"></i></span>
+                <input type="text" class="form-control" name="pro_img3" id="pro_img3" readonly>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="patcer_image">Image4</label>
+              </td>
+              <td class="">
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow4()"></i></span>
+                <input type="text" class="form-control" name="pro_img4" id="pro_img4" readonly>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="patcer_image">Image5</label>
+              </td>
+              <td class="">
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow5()"></i></span>
+                <input type="text" class="form-control" name="pro_img5" id="pro_img5" readonly>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="product_content">Feature Korean</label>
+              </td>
+              <td class="">
+                  <textarea id="editor" name="pro_content"></textarea>
+                  <script src="/public/javascripts/admin/Ckeditor_product.js">
+                  </script>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="product_content">Feature English</label>
+              </td>
+              <td class="">
+                  <textarea id="editor_en" name="pro_content_en"></textarea>
+                  <script src="/public/javascripts/admin/Ckeditor_product_en.js">
+                  </script>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="product_content">Feature Japanese</label>
+              </td>
+              <td class="">
+                  <textarea id="editor_ja" name="pro_content_ja"></textarea>
+                  <script src="/public/javascripts/admin/Ckeditor_product_ja.js">
+                  </script>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="product_content">Feature Vietnamese</label>
+              </td>
+              <td class="">
+                  <textarea id="editor_vi" name="pro_content_vi"></textarea>
+                  <script src="/public/javascripts/admin/Ckeditor_product_vi.js">
+                  </script>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="type_classify">Type classification</label>
+              </td>
+              <td class="">
+                <input type="checkbox" id="type_classify" name="type_classify" >
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="video_page">Video page add</label>
+              </td>
+              <td class="">
+                <input type="checkbox" id="video_page" name="video_page" >
+              </td>
+            </tr>
+
+    </div>
+
+    </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <span class="error" id="repasserr"> </span>
+        <button type="submit" class="btn btn-primary mt-3" >Submit</button>
+        <a class="btn btn-danger mt-3" href="/admin/product">
+          <i class="fas fa-times"></i> Cancel
+        </a>
+
+      </td>
+    </tr>
+
+
+    </form>
+
+    </tbody>
+    </table>
+  </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

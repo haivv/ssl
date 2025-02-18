@@ -52,7 +52,7 @@
                         <div class="news-title simg-body2 text-left simg-black"><%= news.news_title %></div>
                         <p class="news-description simg-body3 text-left simg-gray400">
                             <% 
-                                var words = news.news_content.split(' ');
+                                var words = news.news_summary.split(' ');
                                 var truncatedContent = words.slice(0, 9).join(' ');
                                 if (words.length > 9) {
                                     truncatedContent += '...';

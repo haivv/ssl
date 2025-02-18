@@ -1,0 +1,32 @@
+<%- include('header') %>
+
+    <!-- Content -->
+
+    <style>
+
+    </style>
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3">
+            <%= title %>
+        </h1>
+        <% dataProduct.forEach(function(product) { %>
+
+            <p><strong>Contact Name: </strong> <span>
+                    <%= product.pro_title %>
+                </span></p>
+
+            <strong>Contact Name: </strong> 
+                <div id="editor"> 
+                    <%- product.pro_content %>
+                </div>
+
+               
+
+
+            <a href="/admin/product" type="button" class="btn btn-primary" id="check-button">Back to Manage
+                Page</a>
+            </form>
+            <% }); %>
+    </div>
+
+    <%- include('footer') %>

@@ -3252,3 +3252,12 @@ input:focus {
     opacity: 50%;
     width: 100%;
 }
+
+
+/* news detail */
+.ql-align-center{
+    text-align: center;
+}
+.ql-align-right{
+    text-align: right;
+}

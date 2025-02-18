@@ -1,5 +1,10 @@
 <%- include('header') %>
 
+<style>
+     .simg-title4 a{
+        text-decoration: none !important;
+    }
+    </style>
     <div class="menu-tag simg-body4 simg-gray400 "><a class="index-tag  simg-gray500" href="/">홈</a> > <a class="aboutUs-tag" href="/news">뉴스</a></div>
     <section class="latest-news-container">
         <table class="latest-news-list" border="0">
@@ -9,7 +14,7 @@
                         <img src="/public/uploads/news/<%= news.news_cover_image %>" width="400px" >
                         <div class="latest-news-info">
                             <p class="latest-news-info-title simg-title4">
-                                <a href="/news-detail/<%= news.news_id%>">
+                                <a href="/vi/news-detail/<%= news.news_id%>">
                                 <%= news.news_title%>
                             </a>
                             </p>
@@ -17,7 +22,7 @@
                                 <%= news.news_date%>
                             </p>
                             <p class="latest-news-info-description  simg-body3">
-                                <%= news.news_content%>
+                                <%= news.news_summary%>
                             </p>
                         </div>
                     </td>

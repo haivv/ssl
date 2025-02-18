@@ -52,6 +52,66 @@ let delResult = '';
 
 
 // //////// // SET STORAGE news
+
+///---------------- load image from editor -----------------------
+
+// Config multer to save imgs into uploads
+const storage_add_new_img = multer.diskStorage({
+	destination: (req, file, cb) => {
+	  cb(null, path.join(__dirname, '../public/uploads'));
+	},
+	filename: (req, file, cb) => {
+	  cb(null, Date.now() + '-' + file.originalname);
+	}
+  });
+  const upload_add_new_img = multer({ storage: storage_add_new_img });
+
+// Endpoint to upload image
+router.post('/uploads_add_news', upload_add_new_img.single('upload'), (req, res) => {
+	const file = req.file;
+	if (!file) {
+	  console.error('No file uploaded');
+	  return res.status(400).json({ error: { message: 'No file uploaded' } });
+	}
+	console.log(`File uploaded: ${file.filename}`);
+	res.status(200).json({
+	  uploaded: true,
+	  url: `/uploads/${file.filename}`
+	});
+  });
+
+
+
+  //====test QUILL=============================
+
+
+  const storage_quil = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, './public/uploads');
+	},
+	filename: (req, file, cb) => {
+		cb(null, Date.now() + '-' + file.originalname);
+	}
+  });
+  
+  const upload_quil = multer({ storage: storage_quil });
+  
+  router.use('/uploads', express.static('uploads'));
+  
+  // Route  upload image
+  router.post('/upload_quil', upload_quil.single('image'), (req, res) => {
+	if (!req.file) {
+		return res.status(500).send('Please upload a file');
+	}
+	res.json({ imageUrl: `/uploads/${req.file.filename}` });
+  });
+  
+
+  //end test quil=========================
+
+
+
+///---------- load image from input----------
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, path.join(__dirname, '../public/uploads/news'));
@@ -79,6 +139,8 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 	}
 
 });
+
+
 
 
 //// END SET STORAGE news
@@ -825,18 +887,19 @@ router.post('/news-proAdd', (req, res) => {
 
 
 
-	const { news_title,news_title_en,news_title_ja,news_title_vi, news_content, news_content_en,news_content_ja,news_content_vi, createDate,   news_cover_image } = req.body;
+	const { news_title,news_title_en,news_title_ja,news_title_vi, news_summary, news_summary_en, news_summary_ja, news_summary_vi,  news_content, news_content_en,news_content_ja,news_content_vi, createDate,   news_cover_image } = req.body;
 
 	const news_cover_image2 = dateString + '_' + news_cover_image;
+
 
 	//console.log(createDate);
 
 	var sql2 = `
 				INSERT INTO news
-				(news_title, news_title_en, news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image,news_date )
-				VALUES (?,?,?,?,?,?,?,?,?, ?)`;
+				(news_title, news_title_en, news_title_ja,news_title_vi,  news_summary, news_summary_en, news_summary_ja, news_summary_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image,news_date )
+				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?, ?)`;
 	// res.send(sql);
-	database.query(sql2, [news_title, news_title_en, news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image2, createDate], function (error, data2) {
+	database.query(sql2, [news_title, news_title_en, news_title_ja,news_title_vi, news_summary, news_summary_en, news_summary_ja, news_summary_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image2, createDate], function (error, data2) {
 		if (error) {
 			res.redirect('/admin/error');
 		}
@@ -898,9 +961,12 @@ router.post('/news-proUpdate', function (req, res, next) {
 	var day = ('0' + today.getDate()).slice(-2);
 	var dateString = year + '-' + month + '-' + day;
 
-	const { news_title, news_title_en,news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image, news_cover_image_db, createDate, news_id } = req.body;
+	const { news_title, news_title_en,news_title_ja,news_title_vi, news_summary, news_summary_en, news_summary_ja, news_summary_vi, news_content,news_content_en,news_content_ja,news_content_vi, news_cover_image, news_cover_image_db, createDate, news_id } = req.body;
+
 
 	var originalString = news_cover_image_db.substring(11);
+
+	// console.log(news_cover_image_db);
 
 	var news_cover_image2 = '';
 	if (news_cover_image === originalString) {
@@ -910,6 +976,8 @@ router.post('/news-proUpdate', function (req, res, next) {
 	}
 
 
+	
+
 
 	var sql = `
 	UPDATE news 
@@ -917,15 +985,23 @@ router.post('/news-proUpdate', function (req, res, next) {
 	news_title_en = ?,
 	news_title_ja = ?,
 	news_title_vi = ?,
+
+	news_summary =?,
+	news_summary_en =?,
+	news_summary_ja =?,
+	news_summary_vi =?,
+
+
 	news_content = ?,
 	news_content_en = ?,
 	news_content_ja = ?,
 	news_content_vi = ?,
+
 	news_date = ?,
 	news_cover_image = ?
 	WHERE news_id = "${news_id}"
 	`;
-	database.query(sql, [news_title,news_title_en,news_title_ja,news_title_vi, news_content,news_content_en,news_content_ja,news_content_vi,createDate,  news_cover_image2], function (error, data) {
+	database.query(sql, [news_title,news_title_en,news_title_ja,news_title_vi, news_summary, news_summary_en, news_summary_ja, news_summary_vi, news_content,news_content_en,news_content_ja,news_content_vi,createDate,  news_cover_image2], function (error, data) {
 
 		if (error) {
 			throw error;
@@ -2380,7 +2456,7 @@ router.get('/about-edit/:about_id', (req, res) => {
 			throw error;
 		}
 		else {
-			res.render('admin/about-edit', { title: 'SlideShow Edit', dataAbout, about_id, mes: '' });
+			res.render('admin/about-edit', { title: 'About us Edit', dataAbout, about_id, mes: '' });
 		}
 	});
 
@@ -2637,5 +2713,35 @@ router.post('/logout', (req, res) => {
 	  res.redirect('/admin');
 	
   });
+
+
+
+ ///=================== GET data
+ 
+ router.get('/fill-data', async (req, res) => {
+    database.query('UPDATE news SET news_summary_vi = news_title_vi', (err, result) => {
+        if (err) {
+            return res.send('Lỗi cập nhật: ' + err.message);
+        }
+        res.send(`Cập nhật thành công! ${result.affectedRows} dòng đã được thay đổi.`);
+    });
+});
+
+ ///=================== End GET data
+ 
+router.get('/edior', async (req, res) => {
+    res.render('admin/editor');
+});
+
+router.get('/editor-multi', async (req, res) => {
+    res.render('admin/editor_multi');
+});
+
+router.post('/post', (req, res) => {
+    console.log('Received Data:', req.body);
+    res.json({ message: 'Data received successfully', data: req.body });
+});
+
+
 
 module.exports = router;

@@ -1,0 +1,78 @@
+<%- include('header') %>
+    <style>
+        #editor {
+            height: 400px;
+        }
+
+        .ql-editor .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    </style>
+
+
+ 
+
+
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3">
+            <%= title %>
+        </h1>
+
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <!-- <tr>
+            
+            <th >Username</th>
+            <th >Password</th>
+
+          </tr> -->
+                </thead>
+                <tbody>
+                    <% dataAbout.forEach(function(about) { %>
+                        <form method="post" action="/admin/about_proUpdate" name="fproUpdate">
+                            <tr>
+                                
+                                <td class="">
+                                    <div id="trinhsoanthao">
+                                        <textarea id="editor" name="about_content"><%- about.about_content %></textarea>
+                                        <span id="editor_err"></span>
+                                        <script src="/public/javascripts/admin/Ckeditor.js">
+
+                                        </script>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            
+
+                            <tr>
+                                <td colspan="2">
+                                    <span class="error" id="repasserr"> </span>
+
+                                    <input type="hidden" name="about_id" id="about_id" value="<%= about.about_id %>" />
+                                    <button type="submit" class="btn btn-primary mt-3"
+                                        onclick="">Update</button>
+                                    <a class="btn btn-danger mt-3" href="/admin/about">
+                                        <i class="fas fa-times"></i> Cancel
+                                    </a>
+
+                                </td>
+                            </tr>
+
+                            
+                        </form>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    </div>
+
+    <%- include('footer') %>

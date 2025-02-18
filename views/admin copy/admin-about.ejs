@@ -1,0 +1,53 @@
+<%- include('header') %>
+
+
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3">
+            <%= title %>
+        </h1>
+        <div class="container d-flex justify-content-end">
+
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th id="cate_col1" scope="col">No.</th>
+                        <th id="" scope="col">About Position</th>
+                        <th id="" scope="col">About Content</th>
+                        <th id="" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let i=1; dataAbout.forEach(function(about) { let about_id=about.about_id; %>
+                        <tr>
+                            <td>
+                                <%= i %>
+                            </td>
+                            <td>
+                                <%= about.about_position %>
+                            </td>
+                            <td>
+                                <%- about.about_content %>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="/admin/about-edit/<%= about.about_id %>">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+
+
+                            </td>
+                        </tr>
+
+
+                        <% i++; }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <%- include('footer') %>

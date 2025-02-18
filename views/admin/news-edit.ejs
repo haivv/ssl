@@ -1,4 +1,9 @@
 <%- include('header') %>
+
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="/javascripts/image-resize.min.js"></script>
+
   <script>
     // Add file
     function addFileShow() {
@@ -21,7 +26,6 @@
       var fileName = fileInput.files[0].name;
 
       document.getElementById("news_cover_image").value = fileName;
-      document.getElementById("news_cover_image_db").value = fileName;
       document.fsubmitfile.submit();
     }
 
@@ -29,6 +33,8 @@
   <style>
     #addfile {
       display: none;
+      position: relative;
+      z-index: 1000;
     }
 
     #myfile_left {
@@ -36,10 +42,24 @@
       height: 40px;
     }
 
-    #myfile_select_btn {}
+    #news_content,
+    #news_content_en,
+    #news_content_ja,
+    #news_content_vi {
+      height: 300px;
+    }
+
+    .quill-editor img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+    }
   </style>
 
   <!--show box to add file -->
+
   <div id='addfile' class='messBox'>
     <div class='modalmess-content d-flex flex-column p-4'>
       <div><button class=" btn btn-dark  " onclick='closeBoxAddfile()'>X</button></div>
@@ -68,7 +88,7 @@
   <!-- Content -->
   <div class="container mt-4 box-heigh1000">
     <h1 class="pt-3">
-      <%= title %>
+     
     </h1>
 
     <div class="container">
@@ -82,139 +102,312 @@
           </tr> -->
         </thead>
         <tbody>
-          <% let i=1; dataNews.forEach(function(news) { %>
-          <form method="post" action="/admin/news-proUpdate" >
-            <tr>
-              <td class="">
-                <label for="news_title">Title Korean</label>
-              </td>
-              <td class="">
-                <input type="text" class="form-control" id="news_title" name="news_title" value="<%= news.news_title %>" 
-                  required />
-              </td>
-            </tr>
+          
+            <% let i=1; dataNews.forEach(function(news) { %>
+          <tr>
+            <td class="">
+              <label for="news_title">Title Korean</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type title Korean " class="form-control" id="news_title" name="news_title" value="<%= news.news_title %>" 
+                required />
+            </td>
+          </tr>
 
-            <tr>
-              <td class="">
-                <label for="news_title">Title Korean</label>
-              </td>
-              <td class="">
-                <input type="text"  class="form-control" id="news_title_en" name="news_title_en" value="<%= news.news_title_en %>" 
-                  required />
-              </td>
-            </tr>
+          <tr>
+            <td class="">
+              <label for="news_title_en">Title English</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type title English " class="form-control" id="news_title_en" value="<%= news.news_title_en %>" 
+                name="news_title_en" required />
+            </td>
+          </tr>
 
-            <tr>
-              <td class="">
-                <label for="news_title">Title Japanese</label>
-              </td>
-              <td class="">
-                <input type="text"  class="form-control" id="news_title_en" name="news_title_ja" value="<%= news.news_title_ja %>" 
-                  required />
-              </td>
-            </tr>
+          <tr>
+            <td class="">
+              <label for="news_title_ja">Title Japanese</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type title Japanese " class="form-control" id="news_title_ja"  value="<%= news.news_title_ja %>" 
+                name="news_title_ja" required />
+            </td>
+          </tr>
 
-            <tr style="border-bottom: 1px solid red;">
-              <td class="">
-                <label for="news_title">Title Vietnamese</label>
-              </td>
-              <td class="">
-                <input type="text" class="form-control" id="news_title_vi" name="news_title_vi" value="<%= news.news_title_vi %>" 
-                  required />
-              </td>
-            </tr>
-
-
-            <tr>
-              <td class="">
-                <label for="news_content">Content Korean</label>
-              </td>
-              <td class="">
-                <input type="text" class="form-control" id="news_content"
-                  name="news_content" required value="<%= news.news_content %>" />
-              </td>
-            </tr>
-
-            <tr>
-              <td class="">
-                <label for="news_content_en">Content English</label>
-              </td>
-              <td class="">
-                <input type="text"  class="form-control" id="news_content_en"
-                  name="news_content_en" required value="<%= news.news_content_en %>" />
-              </td>
-            </tr>
-
-            <tr>
-              <td class="">
-                <label for="news_content_ja">Content Japanese</label>
-              </td>
-              <td class="">
-                <input type="text"  class="form-control" id="news_content_ja"
-                  name="news_content_ja" required value="<%= news.news_content_ja %>" />
-              </td>
-            </tr>
-
-            <tr  style="border-bottom: 1px solid red;">
-              <td class="">
-                <label for="news_content_vi">Content Vietnamese</label>
-              </td>
-              <td class="">
-                <input type="text"  class="form-control" id="news_content_vi"
-                  name="news_content_vi" required value="<%= news.news_content_vi %>" />
-              </td>
-            </tr>
-
-            <tr  style="border-bottom: 1px solid red;">
-              <td class="">
-                <label for="createDate">Create Date</label>
-              </td>
-              <td class="">
-                <input type="date" placeholder="createDate" class="form-control" id="createDate" 
-                  name="createDate" value="<%= news.news_date %>" required />
-              </td>
-            </tr>
-
-            <tr>
-              <td class="">
-                <label for="news_cover_image">Upload cover image</label>
-              </td>
-              <td class="">
-
-                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
-                    style="font-size:18px" onclick="addFileShow()"></i></span>
-
-                    <% 
-                      var originalString = news.news_cover_image; 
-                      var news_cover_image2 = originalString.substring(11); 
-                    %>
-
-                <input type="text" class="form-control" name="news_cover_image" id="news_cover_image" readonly  value="<%= news_cover_image2 %>" >
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="2">
-                <span class="error" id="repasserr"> </span>
-                <input type="hidden" name="news_id" value="<%= news.news_id %>"/>
-                <input type="hidden" name="news_cover_image_db" value="<%= news.news_cover_image %>"/>
-
-                <input type="submit" class="btn btn-primary  mt-3 btnSize" value="Submit">
-                <a class="btn btn-danger mt-3" href="/admin/news">
-                  <i class="fas fa-times"></i> Cancel
-                </a>
-              </td>
-            </tr>
+          <tr style="border-bottom: 1px solid red;">
+            <td class="">
+              <label for="news_title_vi">Title Vietnamese</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type title Vietnamese " class="form-control" id="news_title_vi" value="<%= news.news_title_vi %>" 
+                name="news_title_vi" required />
+            </td>
+          </tr>
 
 
-          </form>
+          <!-- summary -->
+
+          <tr>
+            <td class="">
+              <label for="news_summary">Summary Korean</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type Summary Korean " class="form-control" id="news_summary" name="news_summary"  value="<%= news.news_summary %>" 
+                required />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="">
+              <label for="news_summary_en">Summary English</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type Summary English " class="form-control" id="news_summary_en"  value="<%= news.news_summary_en %>" 
+                name="news_summary_en" required />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="">
+              <label for="news_summary_ja">Summary Japanese</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type Summary Japanese " class="form-control" id="news_summary_ja"  value="<%= news.news_summary_ja %>" 
+                name="news_summary_ja" required />
+            </td>
+          </tr>
+
+          <tr style="border-bottom: 1px solid red;">
+            <td class="">
+              <label for="news_summary_vi">Summary Vietnamese</label>
+            </td>
+            <td class="">
+              <input type="text" placeholder="Type Summary Vietnamese " class="form-control" id="news_summary_vi" value="<%= news.news_summary_vi %>" 
+                name="news_summary_vi" required />
+            </td>
+          </tr>
+
+           <!-- end summary -->
+
+           <!-- Content -->
+          <tr>
+            <td class="">
+              <label for="news_content">Content Korean</label>
+            </td>
+            <td class="">
+              <div id="news_content" class="quill-editor">
+                <%- news.news_content %>
+
+              </div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td class="">
+              <label for="news_content_en">Content English</label>
+            </td>
+            <td class="">
+              <div id="news_content_en" class="quill-editor">
+                <%- news.news_content_en %>
+              </div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td class="">
+              <label for="news_content_ja">Content Japanese</label>
+            </td>
+            <td class="">
+              <div id="news_content_ja" class="quill-editor">
+                <%- news.news_content_ja %>
+
+              </div>
+            </td>
+          </tr>
+
+          <tr style="border-bottom: 1px solid red;">
+            <td class="">
+              <label for="news_content_vi">Content Vietnamese</label>
+            </td>
+            <td class="">
+              <div id="news_content_vi" class="quill-editor">
+                <%- news.news_content_vi %>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="border-bottom: 1px solid red;">
+            <td class="">
+              <label for="createDate">Create Date</label>
+            </td>
+            <td class="">
+              <input type="date" placeholder="createDate" class="form-control" id="createDate" name="createDate"
+                required value="<%= news.news_date %>" />
+            </td>
+          </tr>
+
+
+
+
+          <tr>
+            <td class="">
+              <label for="news_cover_image">Upload cover image</label>
+            </td>
+            <td class="">
+
+              <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                  style="font-size:18px" onclick="addFileShow()"></i></span>
+
+                  <% 
+                  var originalString = news.news_cover_image; 
+                  var news_cover_image2 = originalString.substring(11); 
+                %>
+              <input type="text" class="form-control" name="news_cover_image" id="news_cover_image" readonly value="<%= news_cover_image2 %>" >
+            </td>
+          </tr>
+
+
+
+
+
+
+
+
+          <tr>
+            <td colspan="2">
+              <span class="error" id="repasserr"> </span>
+
+
+              <input type="text" name="news_id" id="news_id" value="<%= news.news_id %>"/>
+              <input type="text" name="news_cover_image_db" id="news_cover_image_db" value="<%= news.news_cover_image %>"/>
+
+              <button class="btn btn-primary  mt-3 btnSize" onclick="submitContent()">Submit</button>
+
+
+              <a class="btn btn-danger mt-3" href="/admin/news">
+                <i class="fas fa-times"></i> Cancel
+              </a>
+
+            </td>
+          </tr>
           <% i++; }); %>
+
+          <!-- </form> -->
+
         </tbody>
       </table>
-      
     </div>
 
   </div>
   </div>
+
+
+  <script>
+    var Size = Quill.import('attributors/style/size');
+    Size.whitelist = ['12px', '16px', '20px', '24px', '28px'];
+    Quill.register(Size, true);
+
+    function initializeEditor(selector) {
+      var quill = new Quill(selector, {
+        theme: 'snow',
+        placeholder: 'Type content...',
+        modules: {
+          toolbar: [['bold', 'italic', 'underline'], [{ 'color': [] }], [{ 'font': [] }], [{ 'align': [] }], [{ 'size': Size.whitelist }], ['image', 'video', 'link']],
+          imageResize: {}
+        }
+      });
+
+      quill.getModule('toolbar').addHandler('image', () => {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.click();
+
+        input.onchange = () => {
+          const file = input.files[0];
+          if (/^image\//.test(file.type)) {
+            saveToServer(file).then((url) => {
+              const range = quill.getSelection(true);
+              quill.insertEmbed(range.index, 'image', url);
+            });
+          } else {
+            console.warn('You can only upload images');
+          }
+        };
+      });
+
+      return quill;
+    }
+
+    function saveToServer(file) {
+      return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        fetch('/admin/upload_quil', {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.imageUrl) {
+              resolve(data.imageUrl);
+            } else {
+              reject('Upload failed');
+            }
+          })
+          .catch(error => {
+            reject('Upload error');
+          });
+      });
+    }
+
+    var quill1 = initializeEditor('#news_content');
+    var quill2 = initializeEditor('#news_content_en');
+    var quill3 = initializeEditor('#news_content_ja');
+    var quill4 = initializeEditor('#news_content_vi');
+
+    function submitContent() {
+
+      const content1 = quill1.root.innerHTML;
+      const content2 = quill2.root.innerHTML;
+      const content3 = quill3.root.innerHTML;
+      const content4 = quill4.root.innerHTML;
+
+      let formData = new URLSearchParams();
+      formData.append('news_title', document.getElementById('news_title').value);
+      formData.append('news_title_en', document.getElementById('news_title_en').value);
+      formData.append('news_title_ja', document.getElementById('news_title_ja').value);
+      formData.append('news_title_vi', document.getElementById('news_title_vi').value);
+      formData.append('news_summary', document.getElementById('news_summary').value);
+      formData.append('news_summary_en', document.getElementById('news_summary_en').value);
+      formData.append('news_summary_ja', document.getElementById('news_summary_ja').value);
+      formData.append('news_summary_vi', document.getElementById('news_summary_vi').value);
+      formData.append('createDate', document.getElementById('createDate').value);
+      formData.append('news_cover_image', document.getElementById('news_cover_image').value);
+      formData.append('news_cover_image_db', document.getElementById('news_cover_image_db').value);
+
+      formData.append('news_id', document.getElementById('news_id').value);
+      
+
+
+      formData.append('news_content', content1);
+      formData.append('news_content_en', content2);
+      formData.append('news_content_ja', content3);
+      formData.append('news_content_vi', content4);
+
+      fetch('/admin/news-proUpdate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData
+      })
+        .then(window.location.href = '/admin/news');
+
+    }
+  </script>
 
   <%- include('footer') %>

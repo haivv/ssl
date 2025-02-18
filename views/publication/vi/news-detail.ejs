@@ -12,9 +12,10 @@
                 </div>
                 <div class="detail-news-upload-date simg-body3 text-left simg-gray500">Ngày đăng: <%= news.news_date%>
                 </div>
-                <img src="/public/uploads/news/<%= news.news_cover_image %>">
+                <img width="100%" src="/public/uploads/news/<%= news.news_cover_image %>">
                 <div class="detail-news-introduce simg-body2 text-left simg-black">
-                    <%= news.news_content_vi%>
+                    <br>
+                    <%= news.news_summary_vi%>
                 </div>
 
                 <% }); %>

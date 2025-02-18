@@ -12,8 +12,9 @@
                 </div>
                 <div class="detail-news-upload-date simg-body3 text-left simg-gray500">発行日 <%= news.news_date%>
                 </div>
-                <img src="/public/uploads/news/<%= news.news_cover_image %>">
-                <div class="detail-news-introduce simg-body2 text-left simg-black">
+                <img width="100%" src="/public/uploads/news/<%= news.news_cover_image %>">
+                <div class="detail-news-introduce simg-body2  simg-black">
+                    <br>
                     <%= news.news_content_ja%>
                 </div>
 

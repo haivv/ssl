@@ -102,7 +102,7 @@
                                 <%= news.news_title_ja %>
                             </div>
                             <p class="news-description simg-body4 text-left simg-gray400">
-                                <% var words=news.news_content_ja.split(' ');
+                                <% var words=news.news_summary_ja.split(' ');
                                 var truncatedContent = words.slice(0, 9).join(' ');
                                 if (words.length > 9) {
                                     truncatedContent += ' ...'; } %>
@@ -111,7 +111,7 @@
 
                             </p>
                             <a href="/ja/news/"
-                                class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">뉴스 더보기</a>
+                                class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">ニュースをもっと見る</a>
                         </div>
                     </li>
                     <% }); %>
