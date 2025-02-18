@@ -280,8 +280,8 @@
               <span class="error" id="repasserr"> </span>
 
 
-              <input type="text" name="news_id" id="news_id" value="<%= news.news_id %>"/>
-              <input type="text" name="news_cover_image_db" id="news_cover_image_db" value="<%= news.news_cover_image %>"/>
+              <input type="hidden" name="news_id" id="news_id" value="<%= news.news_id %>"/>
+              <input type="hidden" name="news_cover_image_db" id="news_cover_image_db" value="<%= news.news_cover_image %>"/>
 
               <button class="btn btn-primary  mt-3 btnSize" onclick="submitContent()">Submit</button>
 
