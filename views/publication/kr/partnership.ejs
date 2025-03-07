@@ -1,5 +1,20 @@
 <%- include('header') %>
+    <script>
+        function showVideoPage() {
 
+            document.getElementById('popup').style.display = 'block';
+            const video = document.getElementById('popupVideo');
+            video.currentTime = 0;
+            video.play();
+        }
+
+        function closeVideo() {
+            
+            document.getElementById('popup').style.display = 'none';
+            const video = document.getElementById('popupVideo');
+            video.pause();
+        }
+    </script>
     <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/">홈</a> > <a class="aboutUs-tag" href="#">선정사업</a></div>
     <section class="partnership-page-container">
         <div>
@@ -17,11 +32,20 @@
 
     <section class="partnership-products-container">
         <div class="partnership-products-list">
-            <%   dataPatnership.forEach(function(partnership) { %>
+            <%   dataPatnership.forEach(function(partnership, index) { %>
             <div class="partnership-products-item  simg-bg-white text-left">
                 <img src="/public/uploads/partnership/<%= partnership.partner_img %>">
-                <div class="partnership-products-item-type simg-body3 simg-tangerine"><%= partnership.partner_name %></div>
-                <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project %></div>
+                <div class="partnership-title-horizontal-stack">
+                    <div class="partnership-text-area">
+                        <div class="partnership-products-item-type simg-body3 simg-tangerine"><%= partnership.partner_name %></div>
+                        <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project %></div>
+                    </div>
+                    <% if(index == 0) { %>
+                        <button id="popupMediaButton" onclick="showVideoPage()" alt="Play">
+                            <img src="/public/images/Icon_MediaPlay.png">
+                        </button>
+                    <% } %>
+                </div>
                 <div class="partnership-products-item-content">
                     <%   let detail = partnership.partner_detail; let splitDetails = detail.split('.');  %>
                         <ul >
@@ -37,57 +61,20 @@
         <div class="partnership-products-button-area">
             <a href="/contact" class="partnership-page-contact-button simg-body2 simg-bg-blue simg-white">문의하기</a>
         </div>
+
+        <div id="popup" class="popup" style="display: none;">
+            <div class="popup-blur"></div>
+            <div class="popup-video-container">
+              <span class="close" onclick="closeVideo()">
+                <img src="/public/images/btn-menuClose.png" class="colorize">
+              </span>
+              <video id="popupVideo" controls autoplay>
+                <source src="/public/uploads/partnership/Volvo_R&D.mp4" type="video/mp4" />
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+          </div>
     </section>
-
-    <!-- <section class="partnership-process-container">
-        <div class="section-title">SELECTION PROCESS</div>
-        <p class="section-subtitle">선정 사업에 대한 절차 및 과정 안내</p>
-        <div class="partnership-process-list">
-            <div class="partnership-process-item">
-                <div class="partnership-process-item-sub-title">STEP. 1</div>
-                <div class="partnership-process-item-title">입찰서 제출 및 서류 심사</div>
-                <ul class="partnership-process-item-contents">
-                    <li>해당 프로젝트의 입찰 공고를 확인합니다.</li>
-                    <li>요구사항에 맞춰 입찰서를 작성하고 온/오프라인으로 제출합니다.</li>
-                    <li>제출된 입찰서를 기반으로 서류 심사가 진행됩니다.</li>
-                </ul>
-            </div>
-            <div class="partnership-process-item">
-                <div class="partnership-process-item-sub-title">STEP. 2</div>
-                <div class="partnership-process-item-title">프레젠테이션 및 평가</div>
-                <ul class="partnership-process-item-contents">
-                    <li>입찰서가 통과된 기업은 프레젠테이션 자료를 준비합니다.</li>
-                    <li>프레젠테이션을 통해 사업 계획 및 역량을 설명하고, 데모를 시연합니다.</li>
-                    <li>프레젠테이션과 데모를 기반으로 평가하여 최종 선정 기업을 발표합니다.</li>
-                </ul>
-            </div>
-            <div class="partnership-process-item">
-                <div class="partnership-process-item-sub-title">STEP. 3</div>
-                <div class="partnership-process-item-title">계약 체결 및 프로젝트 수행</div>
-                <ul class="partnership-process-item-contents">
-                    <li>선정된 기업과의 계약을 체결합니다.</li>
-                    <li>계약 체결 후 프로젝트를 착수합니다.</li>
-                    <li>주기적으로 진행 상황을 보고하고, 프로젝트 완료 후 평가 및 피드백을 제공합니다.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="partnership-faq-container">
-        <div class="section-title">FAQ</div>
-        <p class="section-subtitle">자주 묻는 질문</p>
-        <div class="accordion">
-            <% let i=1;   dataQa.forEach(function(qa) { %>
-            <div class="accordion-item">
-                <div class="accordion-title">Q<%=i%>. <%= %></div>
-                <div class="accordion-content">
-                    <p><%= %></p>
-                </div>
-            </div>
-            <% i++; }); %>
-        </div>
-    </section> -->
-
 
     <style>
         .pagination .page-item.active .page-link {

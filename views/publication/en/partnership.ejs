@@ -1,10 +1,25 @@
 <%- include('header') %>
-<style>
-.partnership-products-item {
-    height: 470px !important;
-}
-</style>
+    <style>
+    .partnership-products-item {
+        height: 470px !important;
+    }
+    </style>
+    <script>
+        function showVideoPage() {
 
+            document.getElementById('popup').style.display = 'block';
+            const video = document.getElementById('popupVideo');
+            video.currentTime = 0;
+            video.play();
+        }
+
+        function closeVideo() {
+            
+            document.getElementById('popup').style.display = 'none';
+            const video = document.getElementById('popupVideo');
+            video.pause();
+        }
+    </script>
     <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/en">Home</a> > <a class="aboutUs-tag" href="#">Partnership</a></div>
     <section class="partnership-page-container">
         <div>
