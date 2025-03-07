@@ -37,11 +37,21 @@
 
     <section class="partnership-products-container  simg-page-bg">
         <div class="partnership-products-list">
-            <%   dataPatnership.forEach(function(partnership) { %>
+            <%   dataPatnership.forEach(function(partnership, index) { %>
                 <div class="partnership-products-item simg-bg-white text-left">
                     <img src="/public/uploads/partnership/<%= partnership.partner_img %>">
-                    <div class="partnership-products-item-type  simg-body3 simg-tangerine"><%= partnership.partner_name_en %></div>
-                    <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project_en %></div>
+                    <div class="partnership-title-horizontal-stack">
+                        <div class="partnership-text-area">
+                            <div class="partnership-products-item-type simg-body3 simg-tangerine"><%= partnership.partner_name_en %></div>
+                            <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project_en %></div>
+                        </div>
+                        <div>asdad</div>
+                        <% if(index == 0) { %>
+                            <button id="popupMediaButton" onclick="showVideoPage()" alt="Play">
+                                <img src="/public/images/Icon_MediaPlay.png">
+                            </button>
+                        <% } %>
+                    </div>
                     <div class="partnership-products-item-content">
                         <%   let detail = partnership.partner_detail_en; let splitDetails = detail.split('.');  %>
                         <ul>
@@ -52,11 +62,21 @@
                     </div>
                 </div>
                 <%}); %>
-            
-            
         </div>
         <div class="partnership-products-button-area">
             <a href="/en/contact" class="partnership-page-contact-button simg-body2 simg-bg-blue simg-white">Contact us</a>
+        </div>
+        <div id="popup" class="popup" style="display: none;">
+            <div class="popup-blur"></div>
+            <div class="popup-video-container">
+              <span class="close" onclick="closeVideo()">
+                <img src="/public/images/btn-menuClose.png" class="colorize">
+              </span>
+              <video id="popupVideo" controls autoplay>
+                <source src="/public/uploads/partnership/Volvo_R&D.mp4" type="video/mp4" />
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
         </div>
     </section>
 
