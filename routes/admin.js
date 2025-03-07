@@ -2563,7 +2563,7 @@ router.post('/partnership-proAdd', (req, res) => {
 	var dateString = year + '-' + month + '-' + day;
 
 
-	const { partner_img, partner_name,partner_name_en,partner_name_ja, partner_project,partner_project_en, partner_project_ja, partner_detail, partner_detail_en,partner_detail_ja   } = req.body;
+	const { partner_img, partner_name,partner_name_en,partner_name_ja,partner_name_vi,  partner_project,partner_project_en, partner_project_ja, partner_project_vi,  partner_detail, partner_detail_en,partner_detail_ja ,partner_detail_vi  } = req.body;
 
 
 	var 	partner_img2 = dateString + '_' + partner_img;
@@ -2572,10 +2572,10 @@ router.post('/partnership-proAdd', (req, res) => {
 
 	var sql2 = `
 				INSERT INTO partnership
-				(partner_img, partner_name,partner_name_en,partner_name_ja, partner_project,partner_project_en, partner_project_ja, partner_detail, partner_detail_en,partner_detail_ja )
-				VALUES (?,?,?,?,?,?,?,?,?,?)`;
+				(partner_img, partner_name,partner_name_en,partner_name_ja,partner_name_vi, partner_project,partner_project_en, partner_project_ja,partner_project_vi, partner_detail, partner_detail_en,partner_detail_ja,partner_detail_vi  )
+				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
-	database.query(sql2, [partner_img2, partner_name,partner_name_en,partner_name_ja, partner_project,partner_project_en, partner_project_ja, partner_detail, partner_detail_en,partner_detail_ja], function (error) {
+	database.query(sql2, [partner_img2, partner_name,partner_name_en,partner_name_ja,,partner_name_vi, partner_project,partner_project_en, partner_project_ja,partner_project_vi, partner_detail, partner_detail_en,partner_detail_ja,partner_detail_vi], function (error) {
 		if (error) {
 			res.redirect('/admin/error');
 		}
@@ -2636,7 +2636,7 @@ router.post('/partnership-proUpdate', function (req, res, next) {
 
 	var dateString = year + '-' + month + '-' + day;
 
-	const { partner_img,  partner_db_img,  partner_id, partner_name,partner_name_en,partner_name_ja, partner_project,partner_project_en, partner_project_ja, partner_detail, partner_detail_en,partner_detail_ja } = req.body;
+	const { partner_img,  partner_db_img,  partner_id, partner_name,partner_name_en,partner_name_ja,partner_name_vi, partner_project,partner_project_en, partner_project_ja,partner_project_vi, partner_detail, partner_detail_en,partner_detail_ja,partner_detail_vi } = req.body;
 
 	var originalString =  partner_db_img.substring(11);
 
@@ -2653,16 +2653,19 @@ router.post('/partnership-proUpdate', function (req, res, next) {
 	partner_name = ?,
 	partner_name_en = ?,
 	partner_name_ja = ?,
+	partner_name_vi = ?,
 	partner_project = ?,
 	partner_project_en = ?,
 	partner_project_ja = ?,
+	partner_project_vi = ?,
 	partner_detail = ?,
 	partner_detail_en = ?,
-	partner_detail_ja = ?
+	partner_detail_ja = ?,
+	partner_detail_vi = ?
 	WHERE  partner_id = "${ partner_id}"
 	`;
 
-	database.query(sql, [partner_img2, partner_name,partner_name_en,partner_name_ja, partner_project,partner_project_en, partner_project_ja, partner_detail, partner_detail_en,partner_detail_ja], function (error) {
+	database.query(sql, [partner_img2, partner_name,partner_name_en,partner_name_ja,partner_name_vi, partner_project,partner_project_en, partner_project_ja,partner_project_vi, partner_detail, partner_detail_en,partner_detail_ja,partner_detail_vi], function (error) {
 		if (error) {
 			res.redirect('/admin/error');
 			

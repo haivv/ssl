@@ -326,7 +326,8 @@ router.get('/r-d', function (req, res, next) {
 
 
 	var sqlQa = "SELECT qa_id, qa_question, qa_answer FROM qa";
-	var sqlPatnership = "SELECT * FROM partnership ORDER BY partner_id DESC";
+	var sqlPatnership = "SELECT * FROM partnership WHERE partner_name_en != 'Volvo Korea' ORDER BY partner_id DESC";
+	var sqlPatnership_volvo = "SELECT * FROM partnership WHERE partner_name_en = 'Volvo Korea' ";
 	database.query(sqlCat1, function (error, dataCat1) {
 		database.query(sqlCat2, function (error, dataCat2) {
 			database.query(sqlCat3, function (error, dataCat3) {
@@ -334,9 +335,12 @@ router.get('/r-d', function (req, res, next) {
 					database.query(sqlCat5, function (error, dataCat5) {
 						database.query(sqlQa, function (error, dataQa) {
 							database.query(sqlPatnership, function (error, dataPatnership) {
+								database.query(sqlPatnership_volvo, function (error, dataPatnership_volvo) {
 
-						res.render('publication/vi/partnership', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 , dataQa, dataPatnership});
+						res.render('publication/vi/partnership', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5 , dataQa, dataPatnership, dataPatnership_volvo});
 					});
+					});
+
 					});
 
 

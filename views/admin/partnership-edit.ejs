@@ -117,7 +117,7 @@
                   required />
               </td>
             </tr>
-            <tr style="border-bottom:1px solid red !important">
+            <tr >
               <td class="">
                 <label for="partner_name_ja">Partner Japanese name</label>
               </td>
@@ -126,6 +126,16 @@
                   required />
               </td>
             </tr>
+            <tr style="border-bottom:1px solid red !important">
+              <td class="">
+                <label for="partner_name_ja">Partner Vietnamese name</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type Partner Vietnamese name" class="form-control" id="partner_name_vi" name="partner_name_vi" value="<%= partnership.partner_name_vi %>"
+                  required />
+              </td>
+            </tr>
+
             <!-- project -->
             <tr >
               <td class="">
@@ -145,12 +155,21 @@
                   required />
               </td>
             </tr>
-            <tr style="border-bottom:1px solid red !important">
+            <tr >
               <td class="">
                 <label for="partner_project_ja">Partner Japanese name</label>
               </td>
               <td class="">
-                <input type="text" placeholder="Type Partner English Project" class="form-control" id="partner_project_ja" name="partner_project_ja" value="<%= partnership.partner_project_ja %>"
+                <input type="text" placeholder="Type Partner Japanese Project" class="form-control" id="partner_project_ja" name="partner_project_ja" value="<%= partnership.partner_project_ja %>"
+                  required />
+              </td>
+            </tr>
+            <tr style="border-bottom:1px solid red !important">
+              <td class="">
+                <label for="partner_project_ja">Partner Vietnamese name</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type Partner Vietnamese Project" class="form-control" id="partner_project_vi" name="partner_project_vi" value="<%= partnership.partner_project_vi %>"
                   required />
               </td>
             </tr>
@@ -160,7 +179,7 @@
                 <label for="partner_detail">Partner Korean Detail</label>
               </td>
               <td class="">
-                <input type="text" placeholder="Type Partner English Detail" class="form-control" id="partner_detail" name="partner_detail" value="<%= partnership.partner_detail %>"
+                <input type="text" placeholder="Type Partner Korean Detail" class="form-control" id="partner_detail" name="partner_detail" value="<%= partnership.partner_detail %>"
                   required />
               </td>
             </tr>
@@ -173,12 +192,22 @@
                   required />
               </td>
             </tr>
-            <tr style="border-bottom:1px solid red !important">
+            <tr>
               <td class="">
                 <label for="partner_detail_ja">Korean Japanese Detail</label>
               </td>
               <td class="">
                 <input type="text" placeholder="Type Korean Japanese Detail" class="form-control" id="partner_detail_ja" name="partner_detail_ja" value="<%= partnership.partner_detail_ja %>"
+                  required />
+              </td>
+            </tr>
+
+            <tr style="border-bottom:1px solid red !important">
+              <td class="">
+                <label for="partner_detail_vi">Korean Vietnamese Detail</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type Korean Vietnamese Detail" class="form-control" id="partner_detail_vi" name="partner_detail_vi" value="<%= partnership.partner_detail_vi %>"
                   required />
               </td>
             </tr>
