@@ -3336,3 +3336,15 @@ input:focus {
     height: auto;    
     display: block;
 }
+
+video::-webkit-media-controls-enclosure {
+    overflow: hidden;
+}
+
+video::-webkit-media-controls-download-button {
+    display: none !important;
+}
+
+video::-webkit-media-controls-playback-rate-button {
+    display: none !important;
+}
