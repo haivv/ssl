@@ -37,43 +37,11 @@
 
     <section class="partnership-products-container  simg-page-bg">
         <div class="partnership-products-list">
-            <%   dataPatnership_volvo.forEach(function(partnership_volvo, index) { %>
-                <div class="partnership-products-item simg-bg-white text-left">
-                    <img src="/public/uploads/partnership/<%= partnership_volvo.partner_img %>">
-                    <div class="partnership-title-horizontal-stack">
-                        <div class="partnership-text-area">
-                            <div class="partnership-products-item-type simg-body3 simg-tangerine"><%= partnership_volvo.partner_name_en %></div>
-                            <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership_volvo.partner_project_en %></div>
-                        </div>
-                        
-                        <% if(index == 0) { %>
-                            <button id="popupMediaButton" onclick="showVideoPage()" alt="Play">
-                                <img src="/public/images/Icon_MediaPlay.png">
-                            </button>
-                        <% } %>
-                    </div>
-                    <div class="partnership-products-item-content">
-                        <%   let detail = partnership_volvo.partner_detail_en; let splitDetails = detail.split('.');  %>
-                        <ul>
-                            <% splitDetails.forEach(function(part) { %>
-                              <li  class="simg-body4 simg-gray500" style="margin-bottom: 5px;"><%= part.trim() %></li>
-                            <% }); %>
-                          </ul>
-                    </div>
-                </div>
-                <%}); %>
-
-            <%   dataPatnership.forEach(function(partnership, index) { %>
+            <%   dataPatnership.forEach(function(partnership) { %>
                 <div class="partnership-products-item simg-bg-white text-left">
                     <img src="/public/uploads/partnership/<%= partnership.partner_img %>">
-                    <div class="partnership-title-horizontal-stack">
-                        <div class="partnership-text-area">
-                            <div class="partnership-products-item-type simg-body3 simg-tangerine"><%= partnership.partner_name_en %></div>
-                            <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project_en %></div>
-                        </div>
-                        
-                        
-                    </div>
+                    <div class="partnership-products-item-type  simg-body3 simg-tangerine"><%= partnership.partner_name_en %></div>
+                    <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project_en %></div>
                     <div class="partnership-products-item-content">
                         <%   let detail = partnership.partner_detail_en; let splitDetails = detail.split('.');  %>
                         <ul>
